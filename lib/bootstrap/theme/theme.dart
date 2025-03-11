@@ -11,7 +11,7 @@ class ThemeChanger with ChangeNotifier {
   ThemeChanger(this._themeData);
 
   ThemeData getTheme() {
-    var localThemeValue = LocalStorage.getLocalStorageValue(THEME_DATA_KEY);
+    var localThemeValue = LocalStorage.getLocalStorageValue(themeKey);
 
     switch (localThemeValue) {
       case 'dark':
@@ -36,8 +36,8 @@ class ThemeChanger with ChangeNotifier {
     (isDarkTheme) ? _themeData = DarkTheme.darkTheme : _themeData = LightTheme.lightTheme;
 
     (_themeData.brightness == Brightness.light)
-        ? LocalStorage.putLocalStorageValue(THEME_DATA_KEY, 'light')
-        : LocalStorage.putLocalStorageValue(THEME_DATA_KEY, 'dark');
+        ? LocalStorage.putLocalStorageValue(themeKey, 'light')
+        : LocalStorage.putLocalStorageValue(themeKey, 'dark');
 
     notifyListeners();
   }

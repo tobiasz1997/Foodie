@@ -29,6 +29,7 @@ class DarkTheme {
     ),
     toolbarTextStyle: TextStyle(
       fontFamily: 'RobotoMono',
+      fontWeight: FontWeight.w500
     ),
   );
 
@@ -49,17 +50,18 @@ class DarkTheme {
     ),
     titleLarge: TextStyle(
       fontFamily: 'RobotoMono',
+      fontWeight: FontWeight.w500,
       color: Color.fromRGBO(102, 252, 241, 1.0),
     ),
     bodyLarge: TextStyle(
       fontFamily: 'RobotoMono',
-      fontWeight: FontWeight.w300,
+      fontWeight: FontWeight.w500,
       fontSize: 14,
       color: Color.fromRGBO(197, 198, 199, 1.0),
     ),
     bodyMedium: TextStyle(
       fontFamily: 'RobotoMono',
-      fontWeight: FontWeight.w300,
+      fontWeight: FontWeight.w400,
       fontSize: 14,
       color: Color.fromRGBO(102, 252, 241, 1.0),
     ),

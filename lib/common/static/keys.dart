@@ -1,1 +1,2 @@
-const String THEME_DATA_KEY = 'THEME_DATA';
+const String themeKey = 'THEME_KEY';
+const String localeKey = 'LOCALE_KEY';

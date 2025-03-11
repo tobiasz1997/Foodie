@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class LightTheme {
@@ -29,6 +31,7 @@ class LightTheme {
     ),
     toolbarTextStyle: TextStyle(
       fontFamily: 'RobotoMono',
+      fontWeight: FontWeight.w500
     ),
   );
 
@@ -49,16 +52,17 @@ class LightTheme {
     ),
     titleLarge: TextStyle(
       fontFamily: 'RobotoMono',
+      fontWeight: FontWeight.w500,
       color: Color.fromRGBO(232, 90, 79, 1.0),
     ),
     bodyLarge: TextStyle(
         fontFamily: 'RobotoMono',
-        fontWeight: FontWeight.w300,
+        fontWeight: FontWeight.w400,
         fontSize: 14,
         color: Color(0xFF616161)),
     bodyMedium: TextStyle(
       fontFamily: 'RobotoMono',
-      fontWeight: FontWeight.w300,
+      fontWeight: FontWeight.w400,
       fontSize: 14,
       color: Color.fromRGBO(232, 90, 79, 1.0),
     ),
