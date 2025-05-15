@@ -1,23 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:foodie/modules/shopping_list_page/shopping_list_page.dart';
+import 'package:foodie/widgets/drawer/drawer.dart';
+import 'package:foodie/widgets/shared/page_route_bottom_top_animation/page_route_bottom_top_animation.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
+class _HomePageState extends State<HomePage> {
   AppBar _appBar(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
@@ -26,11 +20,10 @@ class _MyHomePageState extends State<MyHomePage> {
       actions: [
         Builder(
           builder: (ctx) => IconButton(
-            icon: const Icon(
-              Icons.settings,
+            icon: const FaIcon(
+              FontAwesomeIcons.gear,
             ),
-            // onPressed: () => Scaffold.of(ctx).openEndDrawer(),
-            onPressed: () => null,
+            onPressed: () => Scaffold.of(ctx).openEndDrawer(),
           ),
         )
       ],
@@ -41,25 +34,25 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBar(context),
-      // endDrawer: WakeUpDrawer(),
-      body: Center(
+      endDrawer: const FdDrawer(),
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
+          children: [
             Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+              'Content',
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () =>
+            Navigator.of(context).push(createRoute(const ShoppingListPage())),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(100),
+        ),
         tooltip: 'Increment',
-        child: const Icon(Icons.add),
+        child: const FaIcon(FontAwesomeIcons.basketShopping),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }

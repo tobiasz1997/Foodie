@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 class LightTheme {
@@ -29,57 +27,87 @@ class LightTheme {
       fontWeight: FontWeight.w700,
       fontSize: 20,
     ),
-    toolbarTextStyle: TextStyle(
-      fontFamily: 'RobotoMono',
-      fontWeight: FontWeight.w500
-    ),
+    toolbarTextStyle:
+        TextStyle(fontFamily: 'RobotoMono', fontWeight: FontWeight.w500),
   );
 
-  static const IconThemeData _iconTheme = IconThemeData(color: Color(0xFF616161));
+  static const IconThemeData _iconTheme =
+      IconThemeData(color: Color.fromRGBO(97, 97, 97, 1.0));
 
   static const TextTheme _textTheme = TextTheme(
-    displayLarge: TextStyle(
-      fontFamily: 'RobotoMono',
-      fontWeight: FontWeight.w700,
-      fontSize: 36,
-      color: Color.fromRGBO(232, 90, 79, 1.0),
-    ),
-    displayMedium: TextStyle(
-      fontFamily: 'RobotoMono',
-      fontWeight: FontWeight.w700,
-      fontSize: 22,
-      color: Color.fromRGBO(232, 90, 79, 1.0),
-    ),
-    titleLarge: TextStyle(
-      fontFamily: 'RobotoMono',
-      fontWeight: FontWeight.w500,
-      color: Color.fromRGBO(232, 90, 79, 1.0),
-    ),
-    bodyLarge: TextStyle(
+      displayLarge: TextStyle(
+        fontFamily: 'RobotoMono',
+        fontWeight: FontWeight.w700,
+        fontSize: 36,
+        color: Color.fromRGBO(232, 90, 79, 1.0),
+      ),
+      displayMedium: TextStyle(
+        fontFamily: 'RobotoMono',
+        fontWeight: FontWeight.w700,
+        fontSize: 22,
+        color: Color.fromRGBO(232, 90, 79, 1.0),
+      ),
+      titleLarge: TextStyle(
+        fontFamily: 'RobotoMono',
+        fontWeight: FontWeight.w500,
+        color: Color.fromRGBO(232, 90, 79, 1.0),
+      ),
+      bodyLarge: TextStyle(
+          fontFamily: 'RobotoMono',
+          fontWeight: FontWeight.w400,
+          fontSize: 14,
+          color: Color.fromRGBO(232, 90, 79, 1.0)),
+      bodyMedium: TextStyle(
         fontFamily: 'RobotoMono',
         fontWeight: FontWeight.w400,
         fontSize: 14,
-        color: Color(0xFF616161)),
-    bodyMedium: TextStyle(
-      fontFamily: 'RobotoMono',
-      fontWeight: FontWeight.w400,
-      fontSize: 14,
-      color: Color.fromRGBO(232, 90, 79, 1.0),
-    ),
-    labelLarge: TextStyle(
-      fontFamily: 'RobotoMono',
-      fontWeight: FontWeight.w500,
-      fontSize: 14,
-      color: Color.fromRGBO(226, 231, 220, 1.0),
-    ),
-  );
+        color: Color.fromRGBO(97, 97, 97, 1.0),
+      ),
+      bodySmall: TextStyle(
+        fontFamily: 'RobotoMono',
+        fontWeight: FontWeight.w400,
+        fontSize: 12,
+        color: Color.fromRGBO(232, 90, 79, 1.0),
+      ),
+      labelLarge: TextStyle(
+        fontFamily: 'RobotoMono',
+        fontWeight: FontWeight.w500,
+        fontSize: 14,
+        color: Color.fromRGBO(226, 231, 220, 1.0),
+      ),
+      headlineSmall: TextStyle(
+        fontFamily: 'RobotoMono',
+        fontWeight: FontWeight.w500,
+        fontSize: 24,
+        color: Color.fromRGBO(232, 90, 79, 1.0),
+      ));
 
   static const FloatingActionButtonThemeData _floatingActionButtonThemeData =
-  FloatingActionButtonThemeData(
+      FloatingActionButtonThemeData(
     splashColor: Color.fromRGBO(233, 128, 116, 0.5),
     backgroundColor: Color.fromRGBO(232, 90, 79, 1.0),
     foregroundColor: Color.fromRGBO(226, 231, 220, 1.0),
   );
+
+  static const DialogTheme _dialogThemeData =
+      DialogTheme(backgroundColor: Color.fromRGBO(226, 231, 220, 1.0));
+
+  static const ListTileThemeData _listTileThemeData = ListTileThemeData(
+    iconColor: Color.fromRGBO(232, 90, 79, 1.0),
+    titleTextStyle: TextStyle(
+        fontFamily: 'RobotoMono',
+        fontWeight: FontWeight.w400,
+        fontSize: 14,
+        color: Color.fromRGBO(232, 90, 79, 1.0)),
+    subtitleTextStyle: TextStyle(
+        fontFamily: 'RobotoMono',
+        fontWeight: FontWeight.w400,
+        fontSize: 12,
+        color: Color.fromRGBO(233, 128, 116, 1.0)),
+  );
+
+  static const DividerThemeData _dividerThemeData =
+      DividerThemeData(color: Color.fromRGBO(216, 195, 165, 1.0));
 
   static final ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
@@ -87,7 +115,11 @@ class LightTheme {
     appBarTheme: _appBarTheme,
     colorScheme: _lightColorScheme,
     textTheme: _textTheme,
+    dialogTheme: _dialogThemeData,
+    listTileTheme: _listTileThemeData,
+    dividerTheme: _dividerThemeData,
     floatingActionButtonTheme: _floatingActionButtonThemeData,
+    dialogBackgroundColor: const Color.fromRGBO(226, 231, 220, 1.0),
     scaffoldBackgroundColor: const Color.fromRGBO(226, 231, 220, 1.0),
   );
 }

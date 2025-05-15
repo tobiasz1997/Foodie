@@ -1,9 +1,9 @@
 {
   "language": "język",
   "darkTheme": "tryb ciemny",
-  "back": "wróć",
   "english": "angielski",
   "polish": "polski",
   "aboutApp": "o aplikacji",
-  "appDescription": "Aplikacja została stworzona w celu nauki języka flutter i Dart. Autorem jest Grzegorz Tobiasz. Czuj sie wolno aby napisać do mnie. Zachęcam do sprawdzenia moich pozostałych prac oraz zrobienia code review. Wszytkie uwagi będą mile widziane. Życzę Ci miłego dnia ;)"
+  "appDescription": "Aplikacja została stworzona w celu nauki języka flutter i Dart. Autorem jest Grzegorz Tobiasz. Czuj sie wolno aby napisać do mnie. Zachęcam do sprawdzenia moich pozostałych prac oraz zrobienia code review. Wszytkie uwagi będą mile widziane. Życzę Ci miłego dnia ;)",
+  "profile": "Profil"
 }

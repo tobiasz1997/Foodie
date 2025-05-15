@@ -7,10 +7,6 @@
   "@darkTheme": {
     "description": "application dark theme"
   },
-  "back": "back",
-  "@back": {
-    "description": "verb - back"
-  },
   "english": "english",
   "@english": {
     "description": "adj - english"
@@ -26,5 +22,9 @@
   "appDescription": "The application was created for the purpose of learning Flutter and Dart. The author is Grzegorz Tobiasz. Feel free to write to me. I encourage you to check my other works and do a code review. All comments will be appreciated. I wish you have a nice day ;)",
   "@appDescription": {
     "description": "description about app and author"
+  },
+  "profile": "Profile",
+  "@profile": {
+    "description": "adj - profile"
   }
 }
