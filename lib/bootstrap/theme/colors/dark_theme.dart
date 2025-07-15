@@ -63,6 +63,8 @@ class DarkTheme {
         fontWeight: FontWeight.w400,
         fontSize: 14,
         color: Color.fromRGBO(197, 198, 199, 1.0),
+        decorationColor: Color.fromRGBO(102, 252, 241, 1.0),
+        decorationThickness: 2.5,
       ),
       bodySmall: TextStyle(
         fontFamily: 'RobotoMono',
@@ -110,6 +112,9 @@ class DarkTheme {
   static const DividerThemeData _dividerThemeData =
       DividerThemeData(color: Color.fromRGBO(11, 12, 16, 1.0));
 
+  static const CheckboxThemeData _checkboxThemeData = CheckboxThemeData(
+      side: BorderSide(color: Color.fromRGBO(69, 162, 158, 1.0)));
+
   static final ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
     iconTheme: _iconTheme,
@@ -119,6 +124,7 @@ class DarkTheme {
     dialogTheme: _dialogThemeData,
     listTileTheme: _listTileThemeData,
     dividerTheme: _dividerThemeData,
+    checkboxTheme: _checkboxThemeData,
     floatingActionButtonTheme: _floatingActionButtonThemeData,
     dialogBackgroundColor: const Color.fromRGBO(31, 40, 51, 1.0),
     scaffoldBackgroundColor: const Color.fromRGBO(31, 40, 51, 1.0),

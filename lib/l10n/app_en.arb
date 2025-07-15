@@ -26,5 +26,32 @@
   "profile": "Profile",
   "@profile": {
     "description": "adj - profile"
+  },
+  "measurementTeaspoonLong": "teaspoon",
+  "measurementTeaspoonShort": "tsp",
+  "measurementTablespoonLong": "tablespoon",
+  "measurementTablespoonShort": "tbsp",
+  "measurementGlassLong": "glass",
+  "measurementGlassShort": "glass",
+  "measurementMugLong": "mug",
+  "measurementMugShort": "mug",
+  "measurementLiterLong": "liter",
+  "measurementLiterShort": "l",
+  "measurementMillilitreLong": "millilitre",
+  "measurementMillilitreShort": "ml",
+  "measurementGramLong": "gram",
+  "measurementGramShort": "g",
+  "measurementKilogramLong": "kilogram",
+  "measurementKilogramShort": "kg",
+  "measurementPinchLong": "pinch",
+  "measurementPinchShort": "pinch",
+  "measurementHandfulLong": "handful",
+  "measurementHandfulShort": "handful",
+  "measurementDropLong": "drop",
+  "measurementDropShort": "dp",
+  "measurementUnitLong": "unit",
+  "measurementUnitShort": "",
+  "@measurement": {
+    "description": "Group of measurements"
   }
 }

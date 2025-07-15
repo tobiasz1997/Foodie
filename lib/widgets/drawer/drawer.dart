@@ -67,11 +67,12 @@ class _FdDrawerState extends State<FdDrawer> {
               ),
               Align(
                 child: Padding(
-                    padding: const EdgeInsets.only(top: 10),
-                    child: Text(
-                      "John Snow",
-                      style: Theme.of(context).textTheme.displayMedium!,
-                    )),
+                  padding: const EdgeInsets.only(top: 10),
+                  child: Text(
+                    "John Snow",
+                    style: Theme.of(context).textTheme.displayMedium!,
+                  ),
+                ),
               ),
             ],
           ),

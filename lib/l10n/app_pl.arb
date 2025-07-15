@@ -5,5 +5,32 @@
   "polish": "polski",
   "aboutApp": "o aplikacji",
   "appDescription": "Aplikacja została stworzona w celu nauki języka flutter i Dart. Autorem jest Grzegorz Tobiasz. Czuj sie wolno aby napisać do mnie. Zachęcam do sprawdzenia moich pozostałych prac oraz zrobienia code review. Wszytkie uwagi będą mile widziane. Życzę Ci miłego dnia ;)",
-  "profile": "Profil"
+  "profile": "Profil",
+  "measurementTeaspoonLong": "łyżeczka",
+  "measurementTeaspoonShort": "tsp",
+  "measurementTablespoonLong": "łyżka stołowa",
+  "measurementTablespoonShort": "tbsp",
+  "measurementGlassLong": "szklanka",
+  "measurementGlassShort": "szklanka",
+  "measurementMugLong": "filiżanka",
+  "measurementMugShort": "filiżanka",
+  "measurementLiterLong": "litr",
+  "measurementLiterShort": "l",
+  "measurementMillilitreLong": "millilitr",
+  "measurementMillilitreShort": "ml",
+  "measurementGramLong": "gram",
+  "measurementGramShort": "g",
+  "measurementKilogramLong": "kilogram",
+  "measurementKilogramShort": "kg",
+  "measurementPinchLong": "szczypta",
+  "measurementPinchShort": "szczypta",
+  "measurementHandfulLong": "garść",
+  "measurementHandfulShort": "garść",
+  "measurementDropLong": "kropla",
+  "measurementDropShort": "dp",
+  "measurementUnitLong": "sztuka",
+  "measurementUnitShort": "szt",
+  "@measurement": {
+    "description": "Group of measurements"
+  }
 }

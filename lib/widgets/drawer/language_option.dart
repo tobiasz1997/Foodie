@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:foodie/providers/locale.provider.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../l10n/l10n.dart';
 
 class LanguageOption extends StatelessWidget {
   const LanguageOption({super.key});
+
   @override
   Widget build(BuildContext context) {
     final localeProvider = Provider.of<LocaleProvider>(context);
@@ -14,6 +15,15 @@ class LanguageOption extends StatelessWidget {
 
     return Row(
       children: [
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: Text(
+              AppLocalizations.of(context)!.language,
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
+          ),
+        ),
         DropdownButton(
           value: locale,
           icon: Icon(
@@ -29,7 +39,7 @@ class LanguageOption extends StatelessWidget {
           ),
           onChanged: (_) {},
           items: L10n.all.map(
-                (value) {
+            (value) {
               final country = L10n.getCountry(value.languageCode, context);
               return DropdownMenuItem(
                 value: value,
@@ -41,13 +51,6 @@ class LanguageOption extends StatelessWidget {
             },
           ).toList(),
         ),
-        Padding(
-          padding: const EdgeInsets.only(left: 10),
-          child: Text(
-            AppLocalizations.of(context)!.language,
-            style: Theme.of(context).textTheme.bodyLarge,
-          ),
-        )
       ],
     );
   }

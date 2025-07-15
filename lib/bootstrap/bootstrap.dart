@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:foodie/bootstrap/theme/colors/light_theme.dart';
 import 'package:foodie/bootstrap/theme/theme.dart';
@@ -6,7 +7,8 @@ import 'package:foodie/common/routes/routes.dart';
 import 'package:foodie/l10n/l10n.dart';
 import 'package:foodie/providers/locale.provider.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../providers/shopping_list.provider.dart';
 
 class Bootstrap extends StatelessWidget {
   const Bootstrap({super.key});
@@ -14,8 +16,11 @@ class Bootstrap extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(providers: [
-      ChangeNotifierProvider<ThemeChanger>.value(value: ThemeChanger(LightTheme.lightTheme)),
+      ChangeNotifierProvider<ThemeChanger>.value(
+        value: ThemeChanger(LightTheme.lightTheme),
+      ),
       ChangeNotifierProvider.value(value: LocaleProvider()),
+      ChangeNotifierProvider.value(value: ShoppingListProvider()),
     ], child: const BootstrapApp());
   }
 }
