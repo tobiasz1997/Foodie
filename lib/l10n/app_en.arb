@@ -27,6 +27,22 @@
   "@profile": {
     "description": "adj - profile"
   },
+  "shoppingList": "Shopping List",
+  "description": "Description",
+  "ok": "ok",
+  "noData": "No data",
+  "addIngredient": "Add ingredient",
+  "editIngredient": "Edit ingredient",
+  "product": "Product",
+  "measurementUnit": "Measurement unit",
+  "value": "Value",
+  "add": "add",
+  "edit": "add",
+  "cancel": "cancel",
+  "requiredField": "Required field",
+  "successfullyDeletedIngredient": "Successfully deleted ingredient",
+  "successfullyAddedIngredient": "Successfully added ingredient",
+  "successfullyEditedIngredient": "Successfully edited ingredient",
   "measurementTeaspoonLong": "teaspoon",
   "measurementTeaspoonShort": "tsp",
   "measurementTablespoonLong": "tablespoon",
@@ -50,8 +66,5 @@
   "measurementDropLong": "drop",
   "measurementDropShort": "dp",
   "measurementUnitLong": "unit",
-  "measurementUnitShort": "",
-  "@measurement": {
-    "description": "Group of measurements"
-  }
+  "measurementUnitShort": ""
 }

@@ -15,7 +15,7 @@ class PrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialButton(
       height: 50,
-      minWidth: MediaQuery.of(context).size.width / 2,
+      minWidth: double.infinity,
       elevation: 5.0,
       color: disabled
           ? Theme.of(context).colorScheme.onPrimaryContainer

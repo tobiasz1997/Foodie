@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:foodie/modules/shopping_list_page/shopping_list_page.dart';
 import 'package:foodie/widgets/drawer/drawer.dart';
@@ -51,7 +52,7 @@ class _HomePageState extends State<HomePage> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(100),
         ),
-        tooltip: 'Increment',
+        tooltip: AppLocalizations.of(context)!.shoppingList,
         child: const FaIcon(FontAwesomeIcons.basketShopping),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );

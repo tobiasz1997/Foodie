@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:flutter/widgets.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:foodie/common/models/product.dart';
 
 Ingredient ingredientFromMap(String str) =>
@@ -26,7 +28,7 @@ class Ingredient {
 
   factory Ingredient.fromMap(Map<String, dynamic> json) => Ingredient(
         id: json["id"],
-        product: Product.fromMap(json["name"]),
+        product: Product.fromMap(json["product"]),
         description: json["description"],
         measurement: KitchenMeasurement.values.firstWhere(
           (e) => e.toString().split('.').last == json['measurement'],
@@ -48,16 +50,78 @@ class Ingredient {
 }
 
 enum KitchenMeasurement {
-  teaspoon, // Łyżeczka (~5 ml) - tsp
-  tablespoon, // Łyżka stołowa (~15 ml) tbsp
-  glass, // Szklanka (~250 ml)
-  mug, // Filiżanka (~150 ml)
+  unit, // Sztuka
+  kilogram, // Kilogram (kg) - kg
+  gram, // Gram (g) - g
   liter, // Litr (1000 ml) - l
   millilitre, // - ml
-  gram, // Gram (g) - g
-  kilogram, // Kilogram (kg) - kg
+  glass, // Szklanka (~250 ml)
+  mug, // Filiżanka (~150 ml)
+  teaspoon, // Łyżeczka (~5 ml) - tsp
+  tablespoon, // Łyżka stołowa (~15 ml) tbsp
   pinch, // Szczypta
   handful, // Garść
   drop, // Kropla
-  unit // Sztuka
+}
+
+String getMeasurementShort(KitchenMeasurement key, BuildContext context) {
+  switch (key) {
+    case KitchenMeasurement.teaspoon:
+      return AppLocalizations.of(context)!.measurementTeaspoonShort;
+    case KitchenMeasurement.tablespoon:
+      return AppLocalizations.of(context)!.measurementTablespoonShort;
+    case KitchenMeasurement.glass:
+      return AppLocalizations.of(context)!.measurementGlassShort;
+    case KitchenMeasurement.mug:
+      return AppLocalizations.of(context)!.measurementMugShort;
+    case KitchenMeasurement.liter:
+      return AppLocalizations.of(context)!.measurementLiterShort;
+    case KitchenMeasurement.millilitre:
+      return AppLocalizations.of(context)!.measurementMillilitreShort;
+    case KitchenMeasurement.gram:
+      return AppLocalizations.of(context)!.measurementGramShort;
+    case KitchenMeasurement.kilogram:
+      return AppLocalizations.of(context)!.measurementKilogramShort;
+    case KitchenMeasurement.pinch:
+      return AppLocalizations.of(context)!.measurementPinchShort;
+    case KitchenMeasurement.handful:
+      return AppLocalizations.of(context)!.measurementHandfulShort;
+    case KitchenMeasurement.drop:
+      return AppLocalizations.of(context)!.measurementDropShort;
+    case KitchenMeasurement.unit:
+      return AppLocalizations.of(context)!.measurementUnitShort;
+    default:
+      return AppLocalizations.of(context)!.measurementUnitShort; // fallback
+  }
+}
+
+String getMeasurementLong(KitchenMeasurement key, BuildContext context) {
+  switch (key) {
+    case KitchenMeasurement.teaspoon:
+      return AppLocalizations.of(context)!.measurementTeaspoonLong;
+    case KitchenMeasurement.tablespoon:
+      return AppLocalizations.of(context)!.measurementTablespoonLong;
+    case KitchenMeasurement.glass:
+      return AppLocalizations.of(context)!.measurementGlassLong;
+    case KitchenMeasurement.mug:
+      return AppLocalizations.of(context)!.measurementMugLong;
+    case KitchenMeasurement.liter:
+      return AppLocalizations.of(context)!.measurementLiterLong;
+    case KitchenMeasurement.millilitre:
+      return AppLocalizations.of(context)!.measurementMillilitreLong;
+    case KitchenMeasurement.gram:
+      return AppLocalizations.of(context)!.measurementGramLong;
+    case KitchenMeasurement.kilogram:
+      return AppLocalizations.of(context)!.measurementKilogramLong;
+    case KitchenMeasurement.pinch:
+      return AppLocalizations.of(context)!.measurementPinchLong;
+    case KitchenMeasurement.handful:
+      return AppLocalizations.of(context)!.measurementHandfulLong;
+    case KitchenMeasurement.drop:
+      return AppLocalizations.of(context)!.measurementDropLong;
+    case KitchenMeasurement.unit:
+      return AppLocalizations.of(context)!.measurementUnitLong;
+    default:
+      return AppLocalizations.of(context)!.measurementUnitLong; // fallback
+  }
 }

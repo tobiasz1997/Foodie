@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:foodie/common/routes/routes.dart';
+import 'package:foodie/common/storage/database_helper.dart';
 import 'package:foodie/widgets/drawer/language_option.dart';
 import 'package:foodie/widgets/drawer/switch_option.dart';
 import 'package:foodie/widgets/shared/buttons/primary_button_outline.dart';
@@ -164,7 +165,16 @@ class _FdDrawerState extends State<FdDrawer> {
                           switchChanged: (value) =>
                               _themeChanger.setTheme(value),
                         ),
-                        const LanguageOption()
+                        const LanguageOption(),
+                        const Divider(),
+                        ListTile(
+                          title: const Text('Clear local data'),
+                          onTap: () => DatabaseHelper.instance.clearTables(),
+                          leading: const FaIcon(
+                            FontAwesomeIcons.database,
+                            size: 18,
+                          ),
+                        ),
                       ],
                     ),
                   ),

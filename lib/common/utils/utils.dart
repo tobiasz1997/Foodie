@@ -3,3 +3,10 @@ extension UtilsDouble on double {
     return this % 1 == 0 ? toInt().toString() : toString();
   }
 }
+
+extension UtilsString on String {
+  String firstLetterUppercase() {
+    if (isEmpty) return this;
+    return this[0].toUpperCase() + substring(1);
+  }
+}

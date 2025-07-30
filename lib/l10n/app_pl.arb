@@ -6,6 +6,22 @@
   "aboutApp": "o aplikacji",
   "appDescription": "Aplikacja została stworzona w celu nauki języka flutter i Dart. Autorem jest Grzegorz Tobiasz. Czuj sie wolno aby napisać do mnie. Zachęcam do sprawdzenia moich pozostałych prac oraz zrobienia code review. Wszytkie uwagi będą mile widziane. Życzę Ci miłego dnia ;)",
   "profile": "Profil",
+  "shoppingList": "Lista zakupów",
+  "description": "Opis",
+  "ok": "ok",
+  "noData": "Brak danych",
+  "addIngredient": "Dodaj składnik",
+  "editIngredient": "Edytuj składnik",
+  "product": "Produkt",
+  "measurementUnit": "Jednostka miary",
+  "value": "Wartość",
+  "add": "dodaj",
+  "edit": "edytuj",
+  "cancel": "zamknij",
+  "requiredField": "Pole wymagane",
+  "successfullyDeletedIngredient": "Pomyślnie usunięto składnik",
+  "successfullyAddedIngredient": "Pomyślnie dodano składnik",
+  "successfullyEditedIngredient": "Pomyślnie edytowano składnik",
   "measurementTeaspoonLong": "łyżeczka",
   "measurementTeaspoonShort": "tsp",
   "measurementTablespoonLong": "łyżka stołowa",
@@ -29,8 +45,5 @@
   "measurementDropLong": "kropla",
   "measurementDropShort": "dp",
   "measurementUnitLong": "sztuka",
-  "measurementUnitShort": "szt",
-  "@measurement": {
-    "description": "Group of measurements"
-  }
+  "measurementUnitShort": "szt"
 }
