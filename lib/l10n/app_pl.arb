@@ -10,9 +10,11 @@
   "description": "Opis",
   "ok": "ok",
   "noData": "Brak danych",
-  "addIngredient": "Dodaj składnik",
-  "editIngredient": "Edytuj składnik",
-  "product": "Produkt",
+  "addProduct": "Dodaj produkt",
+  "editProduct": "Edytuj produkt",
+  "ingredient": "Składnik",
+  "customProduct": "Inny produkt",
+  "productName": "Nazwa produktu",
   "measurementUnit": "Jednostka miary",
   "value": "Wartość",
   "add": "dodaj",
@@ -45,5 +47,6 @@
   "measurementDropLong": "kropla",
   "measurementDropShort": "dp",
   "measurementUnitLong": "sztuka",
-  "measurementUnitShort": "szt"
+  "measurementUnitShort": "szt",
+  "exceptionCodeVE001ErrorMessage": "Musisz wybrać składnik lub podać nazwe produktu"
 }

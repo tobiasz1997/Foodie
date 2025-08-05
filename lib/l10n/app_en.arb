@@ -31,9 +31,11 @@
   "description": "Description",
   "ok": "ok",
   "noData": "No data",
-  "addIngredient": "Add ingredient",
-  "editIngredient": "Edit ingredient",
-  "product": "Product",
+  "addProduct": "Add product",
+  "editProduct": "Edit product",
+  "ingredient": "Ingredient",
+  "customProduct": "Custom product",
+  "productName": "Product name",
   "measurementUnit": "Measurement unit",
   "value": "Value",
   "add": "add",
@@ -66,5 +68,6 @@
   "measurementDropLong": "drop",
   "measurementDropShort": "dp",
   "measurementUnitLong": "unit",
-  "measurementUnitShort": ""
+  "measurementUnitShort": "",
+  "exceptionCodeVE001ErrorMessage": "Must be selected ingredient or typed custom product name"
 }

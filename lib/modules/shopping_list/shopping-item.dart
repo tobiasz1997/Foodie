@@ -1,27 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:foodie/common/models/ingredient.dart';
-import 'package:foodie/common/models/shopping_list_ingredient.dart';
+import 'package:foodie/common/models/shopping_list_item.dart';
 import 'package:foodie/common/utils/utils.dart';
-import 'package:foodie/modules/shopping_list_page/manage_ingredient_page.dart';
+import 'package:foodie/l10n/translations/measurement.dart';
+import 'package:foodie/modules/shopping_list/manage_shopping_item_page.dart';
+import 'package:foodie/providers/locale.provider.dart';
 import 'package:foodie/providers/shopping_list.provider.dart';
 import 'package:foodie/widgets/shared/dialogs/dialog_info.dart';
 import 'package:foodie/widgets/shared/toast.dart';
 import 'package:provider/provider.dart';
 
-class IngredientListItem extends StatelessWidget {
-  final ShoppingListIngredient ingredient;
+class ShoppingItem extends StatelessWidget {
+  final ShoppingListItem item;
 
-  const IngredientListItem({super.key, required this.ingredient});
+  const ShoppingItem({super.key, required this.item});
 
   @override
   Widget build(BuildContext context) {
-    final ingredientsProvider = Provider.of<ShoppingListProvider>(context);
+    final itemsProvider = Provider.of<ShoppingListProvider>(context);
+    final localeProvider = Provider.of<LocaleProvider>(context);
 
     return Slidable(
       endActionPane: ActionPane(
-        key: ValueKey(ingredient.id!),
+        key: ValueKey(item.id!),
         motion: const ScrollMotion(),
         dragDismissible: true,
         children: [
@@ -29,8 +31,8 @@ class IngredientListItem extends StatelessWidget {
             onPressed: (ctx) => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => ManageIngredientPage(
-                  ingredient: ingredient,
+                builder: (context) => ManageShoppingItemPage(
+                  item: item,
                 ),
               ),
             ),
@@ -39,13 +41,12 @@ class IngredientListItem extends StatelessWidget {
             icon: Icons.edit,
           ),
           SlidableAction(
-            onPressed: (ctx) =>
-                ingredientsProvider.removeIngredient(ingredient.id!).then(
-                      (value) => showToast(
-                          ctx,
-                          AppLocalizations.of(context)!
-                              .successfullyDeletedIngredient),
-                    ),
+            onPressed: (ctx) => itemsProvider.deleteShoppingItem(item.id!).then(
+                  (value) => showToast(
+                      ctx,
+                      AppLocalizations.of(context)!
+                          .successfullyDeletedIngredient),
+                ),
             backgroundColor: Theme.of(context).colorScheme.primary,
             foregroundColor: Theme.of(context).colorScheme.onError,
             icon: Icons.delete,
@@ -57,27 +58,29 @@ class IngredientListItem extends StatelessWidget {
         child: Row(
           children: [
             Checkbox(
-              value: ingredient.active,
-              onChanged: (_) =>
-                  ingredientsProvider.setActiveState(ingredient.id!),
+              value: !item.active,
+              onChanged: (_) => itemsProvider.setActiveState(item.id!),
             ),
             Expanded(
               child: Row(
                 children: [
                   Text(
-                    ingredient.product!.name.pl,
+                    item.product != null
+                        ? localeProvider.locale.toString() == 'pl'
+                            ? item.product!.name.pl
+                            : item.product!.name.en
+                        : item.customName!.firstLetterUppercase(),
                     style: TextStyle(
-                      decoration: ingredient.active
+                      decoration: !item.active
                           ? TextDecoration.lineThrough
                           : TextDecoration.none,
                     ),
                   ),
-                  if (ingredient.description != null &&
-                      ingredient.description!.isNotEmpty)
+                  if (item.description != null && item.description!.isNotEmpty)
                     IconButton(
                       onPressed: () => showInfoDialog(
                         context,
-                        ingredient.description ?? '',
+                        item.description ?? '',
                         title: AppLocalizations.of(context)!.description,
                       ),
                       iconSize: 15,
@@ -89,11 +92,11 @@ class IngredientListItem extends StatelessWidget {
             Row(
               children: [
                 Text(
-                  ingredient.value.toFixedString(),
+                  item.value.toFixedString(),
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.primary,
                     fontWeight: FontWeight.w700,
-                    decoration: ingredient.active
+                    decoration: !item.active
                         ? TextDecoration.lineThrough
                         : TextDecoration.none,
                   ),
@@ -102,12 +105,12 @@ class IngredientListItem extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 2),
                   child: Text(
                     getMeasurementShort(
-                      ingredient.measurement,
+                      item.measurement,
                       context,
                     ),
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
-                      decoration: ingredient.active
+                      decoration: !item.active
                           ? TextDecoration.lineThrough
                           : TextDecoration.none,
                     ),

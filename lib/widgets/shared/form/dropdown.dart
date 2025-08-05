@@ -3,8 +3,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:foodie/common/models/select.dart';
 
 class Dropdown<T> extends StatefulWidget {
+  final Key? fieldKey;
   final String? placeholder;
   final T? initialValue;
+  final bool? enabled;
   final TextEditingController? controller;
   final List<SelectionItem<Object?>> list;
   final String? Function(Object?)? validator;
@@ -20,6 +22,8 @@ class Dropdown<T> extends StatefulWidget {
     this.onSaved,
     this.onChange,
     this.initialValue,
+    this.enabled,
+    this.fieldKey,
   });
 
   @override
@@ -27,35 +31,52 @@ class Dropdown<T> extends StatefulWidget {
 }
 
 class _DropdownState extends State<Dropdown> {
+  final TextEditingController _controller = TextEditingController();
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Expanded(
           child: FormField(
+            key: widget.fieldKey,
             validator: widget.validator,
             onSaved: widget.onSaved,
             initialValue: widget.initialValue,
             autovalidateMode: AutovalidateMode.onUserInteraction,
+            enabled: widget.enabled ?? true,
             builder: (state) {
               return DropdownMenu(
-                controller: widget.controller,
+                controller: _controller,
                 hintText: widget.placeholder,
                 expandedInsets: EdgeInsets.zero,
                 initialSelection: state.value,
                 errorText: state.errorText,
                 enableFilter: true,
+                enabled: widget.enabled ?? true,
                 requestFocusOnTap: true,
                 menuHeight: MediaQuery.of(context).size.height / 4,
                 onSelected: (value) {
+                  print(value);
                   state.didChange(value);
                   widget.onChange?.call(value);
+
+                  if (value == null) {
+                    _controller.clear();
+                  }
                 },
                 dropdownMenuEntries: widget.list
                     .map(
                       (option) => DropdownMenuEntry(
                         label: option.label,
                         value: option.value,
+                        enabled: option.value != null,
                         style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all(
                           state.value == option.value

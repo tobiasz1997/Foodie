@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:foodie/common/routes/routes.dart';
-import 'package:foodie/modules/shopping_list_page/ingredient-list-item.dart';
+import 'package:foodie/modules/shopping_list/shopping-item.dart';
 import 'package:foodie/providers/shopping_list.provider.dart';
 import 'package:provider/provider.dart';
 
@@ -27,7 +27,7 @@ class _ShoppingListPageState extends State<ShoppingListPage> {
               FontAwesomeIcons.plus,
             ),
             onPressed: () =>
-                Navigator.of(context).pushNamed(manageIngredientPageRoute),
+                Navigator.of(context).pushNamed(manageShoppingItemPageRoute),
           ),
         )
       ],
@@ -36,20 +36,20 @@ class _ShoppingListPageState extends State<ShoppingListPage> {
 
   @override
   Widget build(BuildContext context) {
-    final ingredientsList =
-        Provider.of<ShoppingListProvider>(context).getIngredients;
+    final shoppingList =
+        Provider.of<ShoppingListProvider>(context).getShoppingList;
     return Scaffold(
       appBar: _appBar(context),
-      body: ingredientsList.isEmpty
+      body: shoppingList.isEmpty
           ? Center(
               child: Text(AppLocalizations.of(context)!.noData),
             )
           : ListView.builder(
-              itemCount: ingredientsList.length,
+              itemCount: shoppingList.length,
               itemBuilder: (ctx, index) {
-                final ingredient = ingredientsList[index];
-                return IngredientListItem(
-                  ingredient: ingredient,
+                final item = shoppingList[index];
+                return ShoppingItem(
+                  item: item,
                 );
               },
             ),

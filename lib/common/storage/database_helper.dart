@@ -15,31 +15,33 @@ class DatabaseHelper {
     String path = "${directory}local.db";
 
     return await openDatabase(path, version: 1, onCreate: (db, version) {
-      _executeIngredientTable(db);
+      _executeShoppingListTable(db);
     });
   }
 
   Future<void> clearTables() async {
-    await _database?.delete(dbIngredientTable);
+    await _database?.delete(dbShoppingListTable);
   }
 
-  void _executeIngredientTable(Database db) {
+  void _executeShoppingListTable(Database db) {
     db.execute('''
-        create table $dbIngredientTable (
-        $dbIngredientId integer primary key autoincrement,
-        $dbIngredientProductId text not null,
-        $dbIngredientDescription text,
-        $dbIngredientMeasurement text not null,
-        $dbIngredientValue text not null,
-        $dbIngredientActive integer)
+        create table $dbShoppingListTable (
+        $dbShoppingListId integer primary key autoincrement,
+        $dbShoppingListProductId text,
+        $dbShoppingListCustomName text,
+        $dbShoppingListDescription text,
+        $dbShoppingListMeasurement text not null,
+        $dbShoppingListValue text not null,
+        $dbShoppingListActive integer not null)
       ''');
   }
 }
 
-const String dbIngredientTable = 'ingredientTable';
-const String dbIngredientId = 'id';
-const String dbIngredientProductId = 'productId';
-const String dbIngredientDescription = 'description';
-const String dbIngredientMeasurement = 'measurement';
-const String dbIngredientValue = 'value';
-const String dbIngredientActive = 'active';
+const String dbShoppingListTable = 'shoppingListTable';
+const String dbShoppingListId = 'id';
+const String dbShoppingListProductId = 'productId';
+const String dbShoppingListCustomName = 'customName';
+const String dbShoppingListDescription = 'description';
+const String dbShoppingListMeasurement = 'measurement';
+const String dbShoppingListValue = 'value';
+const String dbShoppingListActive = 'active';
