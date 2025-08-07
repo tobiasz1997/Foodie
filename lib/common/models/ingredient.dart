@@ -25,25 +25,24 @@ class Ingredient {
   });
 
   factory Ingredient.fromMap(Map<String, dynamic> json) => Ingredient(
-        id: json["id"],
-        product: Product.fromMap(json["product"]),
-        description: json["description"],
+        id: json['id'],
+        product: Product.fromMap(json['product']),
+        description: json['description'],
         measurement: KitchenMeasurement.values.firstWhere(
           (e) => e.toString().split('.').last == json['measurement'],
-          orElse: () =>
-              KitchenMeasurement.unit, // Domyślnie 'unit', jeśli nie pasuje
+          orElse: () => KitchenMeasurement.unit, // Default 'unit'
         ),
-        value: json["value"],
-        active: json["active"],
+        value: json['value'],
+        active: json['active'],
       );
 
   Map<String, dynamic> toMap() => {
-        "id": id,
-        "product": product.toMap(),
-        "description": description,
-        "measurement": measurement.toString().split('.').last,
-        "value": value,
-        "active": active,
+        'id': id,
+        'product': product.toMap(),
+        'description': description,
+        'measurement': measurement.toString().split('.').last,
+        'value': value,
+        'active': active,
       };
 }
 

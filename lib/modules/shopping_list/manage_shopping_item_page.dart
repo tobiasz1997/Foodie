@@ -33,10 +33,11 @@ class _ManageShoppingItemPageState extends State<ManageShoppingItemPage> {
       resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Padding(
-            padding: const EdgeInsets.all(20),
-            child: ShoppingItemForm(
-              item: widget.item,
-            )),
+          padding: const EdgeInsets.all(20),
+          child: ShoppingItemForm(
+            item: widget.item,
+          ),
+        ),
       ),
     );
   }

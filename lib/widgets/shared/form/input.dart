@@ -66,22 +66,25 @@ class _InputState extends State<Input> {
         hintText: widget.placeholder,
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
-              color: Theme.of(context).colorScheme.primary.withOpacity(0.4),
-              width: 2.0),
+            color: Theme.of(context).colorScheme.primary.withOpacity(0.4),
+            width: 2.0,
+          ),
         ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),
         ),
         errorBorder: OutlineInputBorder(
           borderSide: BorderSide(
-              color: Theme.of(context).colorScheme.error, width: 2.0),
+            color: Theme.of(context).colorScheme.error,
+            width: 2.0,
+          ),
         ),
         errorStyle: TextStyle(
-            color: Theme.of(context).colorScheme.error,
-            fontSize: 14,
-            fontWeight: FontWeight.w700),
+          color: Theme.of(context).colorScheme.error,
+          fontSize: 14,
+          fontWeight: FontWeight.w700,
+        ),
       ),
-      enableSuggestions: true,
     );
   }
 }

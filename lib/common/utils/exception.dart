@@ -2,23 +2,23 @@ import 'package:flutter/cupertino.dart';
 import 'package:foodie/l10n/translations/exceptions.dart';
 
 enum ExceptionCode {
-  DE, // default error
-  VE001 // validation error - shopping list item model
+  de, // default error
+  ve001 // validation error - shopping list item model
 }
 
 class CustomException implements Exception {
   final String message;
   final ExceptionCode errorCode;
 
-  CustomException(this.message, {this.errorCode = ExceptionCode.DE});
+  CustomException(this.message, {this.errorCode = ExceptionCode.de});
 
   ExceptionCode getCode() => errorCode;
 
-  String getMessage(BuildContext context) => errorCode == ExceptionCode.DE
+  String getMessage(BuildContext context) => errorCode == ExceptionCode.de
       ? toString()
       : getExceptionMessage(errorCode, context);
 
   @override
   String toString() =>
-      '${errorCode == ExceptionCode.DE ? 'Unknown error: ' : ''}$message';
+      '${errorCode == ExceptionCode.de ? 'Unknown error: ' : ''}$message';
 }

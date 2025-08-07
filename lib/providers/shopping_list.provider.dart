@@ -22,12 +22,13 @@ class ShoppingListProvider with ChangeNotifier {
     loadShoppingList();
   }
 
-  Future<void> addShoppingItem(
-      {int? productId,
-      String? customName,
-      required KitchenMeasurement measurement,
-      required double value,
-      String description = ''}) async {
+  Future<void> addShoppingItem({
+    int? productId,
+    String? customName,
+    required KitchenMeasurement measurement,
+    required double value,
+    String description = '',
+  }) async {
     var db = await _dbInstance.database;
 
     ShoppingListItem.validate(productId, customName);
@@ -49,10 +50,14 @@ class ShoppingListProvider with ChangeNotifier {
           '${duplicatedItem.description ?? ''} ${newShoppingItem.description ?? ''}';
       duplicatedItem.active = true;
 
-      await db.update(dbShoppingListTable, duplicatedItem.toMap(),
-          where: 'id = ?', whereArgs: [duplicatedItem.id]).catchError(
+      await db.update(
+        dbShoppingListTable,
+        duplicatedItem.toMap(),
+        where: 'id = ?',
+        whereArgs: [duplicatedItem.id],
+      ).catchError(
         (error) {
-          logger.e("Error log", error: error);
+          logger.e('Error log', error: error);
           return error;
         },
       ).then((_) {
@@ -62,7 +67,7 @@ class ShoppingListProvider with ChangeNotifier {
     } else {
       await db.insert(dbShoppingListTable, newShoppingItem.toMap()).catchError(
         (error) {
-          logger.e("Error log", error: error);
+          logger.e('Error log', error: error);
           return error;
         },
       ).then(
@@ -74,13 +79,14 @@ class ShoppingListProvider with ChangeNotifier {
     }
   }
 
-  Future<void> editShoppingItem(
-      {required int itemId,
-      int? productId,
-      String? customName,
-      required KitchenMeasurement measurement,
-      required double value,
-      String? description}) async {
+  Future<void> editShoppingItem({
+    required int itemId,
+    int? productId,
+    String? customName,
+    required KitchenMeasurement measurement,
+    required double value,
+    String? description,
+  }) async {
     var db = await _dbInstance.database;
 
     ShoppingListItem.validate(productId, customName);
@@ -103,17 +109,24 @@ class ShoppingListProvider with ChangeNotifier {
       duplicatedItem.active = true;
 
       await db.transaction((txn) async {
-        await txn.update(dbShoppingListTable, duplicatedItem.toMap(),
-            where: 'id = ?', whereArgs: [duplicatedItem.id]).catchError(
+        await txn.update(
+          dbShoppingListTable,
+          duplicatedItem.toMap(),
+          where: 'id = ?',
+          whereArgs: [duplicatedItem.id],
+        ).catchError(
           (error) {
-            logger.e("Error log", error: error);
+            logger.e('Error log', error: error);
             return error;
           },
         );
-        await txn.delete(dbShoppingListTable,
-            where: 'id = ?', whereArgs: [editedShoppingItem.id]).catchError(
+        await txn.delete(
+          dbShoppingListTable,
+          where: 'id = ?',
+          whereArgs: [editedShoppingItem.id],
+        ).catchError(
           (error) {
-            logger.e("Error log", error: error);
+            logger.e('Error log', error: error);
             return error;
           },
         );
@@ -122,10 +135,14 @@ class ShoppingListProvider with ChangeNotifier {
         loadShoppingList();
       });
     } else {
-      await db.update(dbShoppingListTable, editedShoppingItem.toMap(),
-          where: 'id = ?', whereArgs: [editedShoppingItem.id]).catchError(
+      await db.update(
+        dbShoppingListTable,
+        editedShoppingItem.toMap(),
+        where: 'id = ?',
+        whereArgs: [editedShoppingItem.id],
+      ).catchError(
         (error) {
-          logger.e("Error log", error: error);
+          logger.e('Error log', error: error);
           return error;
         },
       ).then((_) {
@@ -137,14 +154,17 @@ class ShoppingListProvider with ChangeNotifier {
 
   Future<void> deleteShoppingItem(int itemId) async {
     var db = await _dbInstance.database;
-    await db.delete(dbShoppingListTable,
-        where: 'id = ?', whereArgs: [itemId]).catchError(
+    await db.delete(
+      dbShoppingListTable,
+      where: 'id = ?',
+      whereArgs: [itemId],
+    ).catchError(
       (error) {
-        logger.e("Error log", error: error);
+        logger.e('Error log', error: error);
         return error;
       },
     ).then((_) {
-      logger.i("deleted item with id=$itemId");
+      logger.i('deleted item with id=$itemId');
       loadShoppingList();
     });
   }
@@ -156,7 +176,7 @@ class ShoppingListProvider with ChangeNotifier {
     var db = await _dbInstance.database;
     var result = await db.query(dbShoppingListTable).catchError(
       (error) {
-        logger.e("Error log", error: error);
+        logger.e('Error log', error: error);
         return error;
       },
     );
@@ -181,10 +201,14 @@ class ShoppingListProvider with ChangeNotifier {
     item.active = !item.active;
 
     var db = await _dbInstance.database;
-    await db.update(dbShoppingListTable, item.toMap(),
-        where: 'id = ?', whereArgs: [id]).catchError(
+    await db.update(
+      dbShoppingListTable,
+      item.toMap(),
+      where: 'id = ?',
+      whereArgs: [id],
+    ).catchError(
       (error) {
-        logger.e("Error log", error: error);
+        logger.e('Error log', error: error);
         return error;
       },
     ).then((_) {
@@ -203,13 +227,14 @@ class ShoppingListProvider with ChangeNotifier {
         )
         .toList();
     list.sort((a, b) => a.label.compareTo(b.label));
-    list.add(SelectionItem(label: '', value: null));
+    list.add(SelectionItem(label: ''));
 
     return list;
   }
 
   List<SelectionItem<KitchenMeasurement>> getMeasurementsList(
-      BuildContext context) {
+    BuildContext context,
+  ) {
     return KitchenMeasurement.values
         .map(
           (measurement) => SelectionItem(
@@ -226,10 +251,12 @@ class ShoppingListProvider with ChangeNotifier {
       return null;
     }
     var isExist = _shoppingList
-        .where((element) =>
-            element.productId == item.productId &&
-            element.measurement == item.measurement &&
-            element.id != item.id)
+        .where(
+          (element) =>
+              element.productId == item.productId &&
+              element.measurement == item.measurement &&
+              element.id != item.id,
+        )
         .firstOrNull;
 
     return isExist;

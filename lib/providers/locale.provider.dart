@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/widgets.dart';
 import 'package:foodie/common/static/keys.dart';
 import 'package:foodie/common/storage/local_storage.dart';

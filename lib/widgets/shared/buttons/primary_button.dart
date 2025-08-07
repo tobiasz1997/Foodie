@@ -5,11 +5,12 @@ class PrimaryButton extends StatelessWidget {
   final Function onPressed;
   final bool disabled;
 
-  const PrimaryButton(
-      {super.key,
-      required this.text,
-      required this.onPressed,
-      this.disabled = false});
+  const PrimaryButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+    this.disabled = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -28,12 +29,13 @@ class PrimaryButton extends StatelessWidget {
         text,
         style: disabled
             ? Theme.of(context).textTheme.labelLarge!.copyWith(
-                color: Theme.of(context)
-                    .textTheme
-                    .labelLarge!
-                    .color!
-                    .withOpacity(0.5),
-                fontSize: 18)
+                  color: Theme.of(context)
+                      .textTheme
+                      .labelLarge!
+                      .color!
+                      .withOpacity(0.5),
+                  fontSize: 18,
+                )
             : Theme.of(context).textTheme.labelLarge!.copyWith(fontSize: 18),
       ),
     );

@@ -16,19 +16,18 @@ class Product {
   });
 
   factory Product.fromMap(Map<String, dynamic> json) => Product(
-        id: json["id"],
-        name: Name.fromMap(json["name"]),
+        id: json['id'],
+        name: Name.fromMap(json['name']),
         category: IngredientsCategory.values.firstWhere(
           (e) => e.toString().split('.').last == json['category'],
-          orElse: () =>
-              IngredientsCategory.other, // Domyślnie 'Other', jeśli nie pasuje
+          orElse: () => IngredientsCategory.other, // Default 'Other'
         ),
       );
 
   Map<String, dynamic> toMap() => {
-        "id": id,
-        "name": name.toMap(),
-        "category": category.toString().split('.').last,
+        'id': id,
+        'name': name.toMap(),
+        'category': category.toString().split('.').last,
       };
 }
 
@@ -42,13 +41,13 @@ class Name {
   });
 
   factory Name.fromMap(Map<String, dynamic> json) => Name(
-        pl: json["pl"],
-        en: json["en"],
+        pl: json['pl'],
+        en: json['en'],
       );
 
   Map<String, dynamic> toMap() => {
-        "pl": pl,
-        "en": en,
+        'pl': pl,
+        'en': en,
       };
 }
 

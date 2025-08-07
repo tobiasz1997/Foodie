@@ -5,11 +5,12 @@ class PrimaryButtonOutline extends StatelessWidget {
   final Function onPressed;
   final bool disabled;
 
-  const PrimaryButtonOutline(
-      {super.key,
-      required this.text,
-      required this.onPressed,
-      this.disabled = false});
+  const PrimaryButtonOutline({
+    super.key,
+    required this.text,
+    required this.onPressed,
+    this.disabled = false,
+  });
 
   @override
   Widget build(BuildContext context) => MaterialButton(
@@ -19,16 +20,16 @@ class PrimaryButtonOutline extends StatelessWidget {
         highlightElevation: 0.0,
         color: Colors.transparent,
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(5),
-            side: BorderSide(
-                color: disabled
-                    ? Theme.of(context)
-                        .colorScheme
-                        .onPrimaryContainer
-                        .withOpacity(0.5)
-                    : Theme.of(context).colorScheme.primary,
-                width: 1,
-                style: BorderStyle.solid)),
+          borderRadius: BorderRadius.circular(5),
+          side: BorderSide(
+            color: disabled
+                ? Theme.of(context)
+                    .colorScheme
+                    .onPrimaryContainer
+                    .withOpacity(0.5)
+                : Theme.of(context).colorScheme.primary,
+          ),
+        ),
         onPressed: () => onPressed(),
         splashColor:
             Theme.of(context).colorScheme.onPrimaryContainer.withOpacity(0.5),
@@ -36,11 +37,12 @@ class PrimaryButtonOutline extends StatelessWidget {
           text,
           style: disabled
               ? Theme.of(context).textTheme.bodyMedium!.copyWith(
-                  color: Theme.of(context)
-                      .colorScheme
-                      .onPrimaryContainer
-                      .withOpacity(0.5),
-                  fontSize: 18)
+                    color: Theme.of(context)
+                        .colorScheme
+                        .onPrimaryContainer
+                        .withOpacity(0.5),
+                    fontSize: 18,
+                  )
               : Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 18),
         ),
       );

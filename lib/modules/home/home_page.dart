@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
             ),
             onPressed: () => Scaffold.of(ctx).openEndDrawer(),
           ),
-        )
+        ),
       ],
     );
   }

@@ -12,11 +12,15 @@ class DatabaseHelper {
 
   Future<Database> _initializeDatabase() async {
     String directory = await getDatabasesPath();
-    String path = "${directory}local.db";
+    String path = '${directory}local.db';
 
-    return await openDatabase(path, version: 1, onCreate: (db, version) {
-      _executeShoppingListTable(db);
-    });
+    return await openDatabase(
+      path,
+      version: 1,
+      onCreate: (db, version) {
+        _executeShoppingListTable(db);
+      },
+    );
   }
 
   Future<void> clearTables() async {

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:foodie/bootstrap/theme/theme.dart';
 import 'package:foodie/common/routes/routes.dart';
+import 'package:foodie/common/static/constant.dart';
 import 'package:foodie/common/storage/database_helper.dart';
 import 'package:foodie/widgets/drawer/language_option.dart';
 import 'package:foodie/widgets/drawer/switch_option.dart';
 import 'package:foodie/widgets/shared/buttons/primary_button_outline.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import '../../bootstrap/theme/theme.dart';
-import '../../common/static/constant.dart';
 
 class FdDrawer extends StatefulWidget {
   const FdDrawer({super.key});
@@ -20,6 +20,23 @@ class FdDrawer extends StatefulWidget {
 }
 
 class _FdDrawerState extends State<FdDrawer> {
+  late final _appName;
+  late final _version;
+
+  @override
+  void initState() {
+    super.initState();
+    _initPackageInfo();
+  }
+
+  Future<void> _initPackageInfo() async {
+    final info = await PackageInfo.fromPlatform();
+    setState(() {
+      _appName = info.appName;
+      _version = '${info.version} (${info.buildNumber})';
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     ThemeChanger _themeChanger = Provider.of<ThemeChanger>(context);
@@ -34,8 +51,8 @@ class _FdDrawerState extends State<FdDrawer> {
     void _openEmailApp() async {
       final Uri params = Uri(
         scheme: 'mailto',
-        path: EMAIL_URL,
-        query: 'subject=Wake Up App Feedback&body=Hi Grzegorz,',
+        path: emailUrl,
+        query: 'subject=Foodie App Feedback&body=Hi Grzegorz,',
       );
 
       if (await canLaunchUrl(params)) {
@@ -57,7 +74,6 @@ class _FdDrawerState extends State<FdDrawer> {
             ],
           ),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CircleAvatar(
@@ -70,7 +86,7 @@ class _FdDrawerState extends State<FdDrawer> {
                 child: Padding(
                   padding: const EdgeInsets.only(top: 10),
                   child: Text(
-                    "John Snow",
+                    'John Snow',
                     style: Theme.of(context).textTheme.displayMedium!,
                   ),
                 ),
@@ -92,10 +108,10 @@ class _FdDrawerState extends State<FdDrawer> {
               padding: const EdgeInsets.all(7),
               width: 50,
               height: 50,
-              child: Image.asset("assets/logo/foodie_logo.png"),
+              child: Image.asset('assets/logo/foodie_logo.png'),
             ),
-            applicationName: APPLICATION_NAME,
-            applicationVersion: APPLICATION_VERSION,
+            applicationName: _appName,
+            applicationVersion: _version,
             applicationLegalese: AppLocalizations.of(context)!.appDescription,
             children: [
               Padding(
@@ -104,7 +120,7 @@ class _FdDrawerState extends State<FdDrawer> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     IconButton(
-                      onPressed: () => _openBrowserURL(GITHUB_URL),
+                      onPressed: () => _openBrowserURL(githubUrl),
                       icon: FaIcon(
                         FontAwesomeIcons.github,
                         size: 25,
@@ -112,7 +128,7 @@ class _FdDrawerState extends State<FdDrawer> {
                       ),
                     ),
                     IconButton(
-                      onPressed: () => _openBrowserURL(LINKEDIN_URL),
+                      onPressed: () => _openBrowserURL(linkedInUrl),
                       icon: FaIcon(
                         FontAwesomeIcons.linkedin,
                         size: 25,
@@ -183,7 +199,7 @@ class _FdDrawerState extends State<FdDrawer> {
                     child: Column(
                       children: [_aboutDialog(context)],
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

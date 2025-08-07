@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 
-enum ToastType { Success, Info, Error, Warning }
+enum ToastType { success, info, error, warning }
 
-void showToast(BuildContext context, String message,
-    {ToastType type = ToastType.Success}) {
+void showToast(
+  BuildContext context,
+  String message, {
+  ToastType type = ToastType.success,
+}) {
   String getIcon() {
     switch (type) {
-      case ToastType.Success:
+      case ToastType.success:
         return '✅';
-      case ToastType.Info:
+      case ToastType.info:
         return 'ℹ️';
-      case ToastType.Error:
+      case ToastType.error:
         return '❌';
-      case ToastType.Warning:
+      case ToastType.warning:
         return '⚠️';
     }
   }

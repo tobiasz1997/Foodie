@@ -16,8 +16,9 @@ void showInfoDialog(BuildContext context, String message, {String title = ''}) {
     ),
     actions: [
       PrimaryButton(
-          text: AppLocalizations.of(context)!.ok,
-          onPressed: () => Navigator.pop(context))
+        text: AppLocalizations.of(context)!.ok,
+        onPressed: () => Navigator.pop(context),
+      ),
     ],
   );
 

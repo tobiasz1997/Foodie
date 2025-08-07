@@ -85,11 +85,16 @@ class _ShoppingItemFormState extends State<ShoppingItemForm> {
       )
           .then((value) {
         showToast(
-            context, AppLocalizations.of(context)!.successfullyAddedIngredient);
+          context,
+          AppLocalizations.of(context)!.successfullyAddedIngredient,
+        );
         Navigator.pop(context);
-      }).catchError((error) {
-        showToast(context, error.getMessage(context), type: ToastType.Error);
-      }, test: (error) => error is CustomException);
+      }).catchError(
+        (error) {
+          showToast(context, error.getMessage(context), type: ToastType.error);
+        },
+        test: (error) => error is CustomException,
+      );
     } else {
       Provider.of<ShoppingListProvider>(context, listen: false)
           .editShoppingItem(
@@ -101,12 +106,17 @@ class _ShoppingItemFormState extends State<ShoppingItemForm> {
         description: description ?? '',
       )
           .then((value) {
-        showToast(context,
-            AppLocalizations.of(context)!.successfullyEditedIngredient);
+        showToast(
+          context,
+          AppLocalizations.of(context)!.successfullyEditedIngredient,
+        );
         Navigator.pop(context);
-      }).catchError((error) {
-        showToast(context, error.getMessage(context), type: ToastType.Error);
-      }, test: (error) => error is CustomException);
+      }).catchError(
+        (error) {
+          showToast(context, error.getMessage(context), type: ToastType.error);
+        },
+        test: (error) => error is CustomException,
+      );
     }
   }
 
@@ -228,7 +238,7 @@ class _ShoppingItemFormState extends State<ShoppingItemForm> {
                 ),
               ),
             ],
-          )
+          ),
         ],
       ),
     );

@@ -63,7 +63,6 @@ class _DropdownState extends State<Dropdown> {
                 requestFocusOnTap: true,
                 menuHeight: MediaQuery.of(context).size.height / 4,
                 onSelected: (value) {
-                  print(value);
                   state.didChange(value);
                   widget.onChange?.call(value);
 
@@ -78,13 +77,14 @@ class _DropdownState extends State<Dropdown> {
                         value: option.value,
                         enabled: option.value != null,
                         style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                          state.value == option.value
-                              ? Theme.of(context).colorScheme.primary
-                              : Theme.of(context)
-                                  .colorScheme
-                                  .onPrimaryContainer,
-                        )),
+                          backgroundColor: MaterialStateProperty.all(
+                            state.value == option.value
+                                ? Theme.of(context).colorScheme.primary
+                                : Theme.of(context)
+                                    .colorScheme
+                                    .onPrimaryContainer,
+                          ),
+                        ),
                         labelWidget: Text(
                           option.label,
                           style: TextStyle(
@@ -123,7 +123,6 @@ class _DropdownState extends State<Dropdown> {
                     .bodyMedium!
                     .copyWith(fontSize: 18),
                 inputDecorationTheme: InputDecorationTheme(
-                  filled: false,
                   focusColor: Colors.deepOrangeAccent,
                   contentPadding:
                       const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
@@ -141,7 +140,9 @@ class _DropdownState extends State<Dropdown> {
                   ),
                   errorBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                        color: Theme.of(context).colorScheme.error, width: 2.0),
+                      color: Theme.of(context).colorScheme.error,
+                      width: 2.0,
+                    ),
                   ),
                   errorStyle: TextStyle(
                     color: Theme.of(context).colorScheme.error,

@@ -4,7 +4,7 @@ import 'package:foodie/common/utils/exception.dart';
 
 String getExceptionMessage(ExceptionCode code, BuildContext context) {
   switch (code) {
-    case ExceptionCode.VE001:
+    case ExceptionCode.ve001:
       return AppLocalizations.of(context)!.exceptionCodeVE001ErrorMessage;
     default:
       return ''; // fallback

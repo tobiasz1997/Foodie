@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:foodie/bootstrap/theme/theme.dart';
 import 'package:provider/provider.dart';
-
-import '../../bootstrap/theme/theme.dart';
 
 class FdSwitch extends StatelessWidget {
   final bool isActive;

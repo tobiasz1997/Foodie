@@ -15,6 +15,6 @@ extension UtilsString on String {
   }
 
   double doubleParse() {
-    return double.tryParse(replaceAll(',', '.') ?? '') ?? 0;
+    return double.tryParse(replaceAll(',', '.')) ?? 0;
   }
 }

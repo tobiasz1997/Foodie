@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:foodie/l10n/l10n.dart';
 import 'package:foodie/providers/locale.provider.dart';
 import 'package:provider/provider.dart';
-
-import '../../l10n/l10n.dart';
 
 class LanguageOption extends StatelessWidget {
   const LanguageOption({super.key});
@@ -30,8 +29,6 @@ class LanguageOption extends StatelessWidget {
             Icons.arrow_drop_down,
             color: Theme.of(context).colorScheme.primary,
           ),
-          iconSize: 24,
-          elevation: 8,
           style: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 16),
           underline: Container(
             height: 2,
