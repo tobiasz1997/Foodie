@@ -6,22 +6,24 @@ import 'package:foodie/bootstrap/theme/theme.dart';
 import 'package:foodie/common/routes/routes.dart';
 import 'package:foodie/l10n/l10n.dart';
 import 'package:foodie/providers/locale.provider.dart';
+import 'package:foodie/providers/shopping_list.provider.dart';
 import 'package:provider/provider.dart';
-
-import '../providers/shopping_list.provider.dart';
 
 class Bootstrap extends StatelessWidget {
   const Bootstrap({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(providers: [
-      ChangeNotifierProvider<ThemeChanger>.value(
-        value: ThemeChanger(LightTheme.lightTheme),
-      ),
-      ChangeNotifierProvider.value(value: LocaleProvider()),
-      ChangeNotifierProvider.value(value: ShoppingListProvider()),
-    ], child: const BootstrapApp());
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider<ThemeChanger>.value(
+          value: ThemeChanger(LightTheme.lightTheme),
+        ),
+        ChangeNotifierProvider.value(value: LocaleProvider()),
+        ChangeNotifierProvider.value(value: ShoppingListProvider()),
+      ],
+      child: const BootstrapApp(),
+    );
   }
 }
 
@@ -46,7 +48,7 @@ class _BootstrapAppState extends State<BootstrapApp> {
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate
+        GlobalWidgetsLocalizations.delegate,
       ],
       routes: appRouteMap,
       initialRoute: homePageRoute,

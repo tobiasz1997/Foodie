@@ -6,7 +6,7 @@ void showInfoDialog(BuildContext context, String message, {String title = ''}) {
   AlertDialog alert = AlertDialog(
     title: Text(
       title,
-      style: Theme.of(context).textTheme.headlineMedium,
+      style: Theme.of(context).textTheme.headlineSmall,
     ),
     content: Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),

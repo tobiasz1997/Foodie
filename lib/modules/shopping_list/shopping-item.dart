@@ -25,7 +25,6 @@ class ShoppingItem extends StatelessWidget {
       endActionPane: ActionPane(
         key: ValueKey(item.id!),
         motion: const ScrollMotion(),
-        dragDismissible: true,
         children: [
           SlidableAction(
             onPressed: (ctx) => Navigator.push(
@@ -43,9 +42,9 @@ class ShoppingItem extends StatelessWidget {
           SlidableAction(
             onPressed: (ctx) => itemsProvider.deleteShoppingItem(item.id!).then(
                   (value) => showToast(
-                      ctx,
-                      AppLocalizations.of(context)!
-                          .successfullyDeletedIngredient),
+                    ctx,
+                    AppLocalizations.of(context)!.successfullyDeletedIngredient,
+                  ),
                 ),
             backgroundColor: Theme.of(context).colorScheme.primary,
             foregroundColor: Theme.of(context).colorScheme.onError,
@@ -84,8 +83,11 @@ class ShoppingItem extends StatelessWidget {
                         title: AppLocalizations.of(context)!.description,
                       ),
                       iconSize: 15,
-                      icon: const Icon(Icons.info_outline),
-                    )
+                      icon: Icon(
+                        Icons.info_outline,
+                        color: Theme.of(context).colorScheme.onPrimaryContainer,
+                      ),
+                    ),
                 ],
               ),
             ),
@@ -117,7 +119,7 @@ class ShoppingItem extends StatelessWidget {
                   ),
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),

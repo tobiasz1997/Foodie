@@ -35,54 +35,56 @@ class LightTheme {
       IconThemeData(color: Color.fromRGBO(97, 97, 97, 1.0));
 
   static const TextTheme _textTheme = TextTheme(
-      displayLarge: TextStyle(
-        fontFamily: 'RobotoMono',
-        fontWeight: FontWeight.w700,
-        fontSize: 36,
-        color: Color.fromRGBO(232, 90, 79, 1.0),
-      ),
-      displayMedium: TextStyle(
-        fontFamily: 'RobotoMono',
-        fontWeight: FontWeight.w700,
-        fontSize: 22,
-        color: Color.fromRGBO(232, 90, 79, 1.0),
-      ),
-      titleLarge: TextStyle(
-        fontFamily: 'RobotoMono',
-        fontWeight: FontWeight.w500,
-        color: Color.fromRGBO(232, 90, 79, 1.0),
-      ),
-      bodyLarge: TextStyle(
-          fontFamily: 'RobotoMono',
-          fontWeight: FontWeight.w400,
-          fontSize: 14,
-          color: Color.fromRGBO(232, 90, 79, 1.0)),
-      bodyMedium: TextStyle(
-        fontFamily: 'RobotoMono',
-        fontWeight: FontWeight.w400,
-        fontSize: 14,
-        color: Color.fromRGBO(97, 97, 97, 1.0),
-        decorationColor: Color.fromRGBO(232, 90, 79, 1.0),
-        decorationThickness: 2.5,
-      ),
-      bodySmall: TextStyle(
-        fontFamily: 'RobotoMono',
-        fontWeight: FontWeight.w400,
-        fontSize: 12,
-        color: Color.fromRGBO(232, 90, 79, 1.0),
-      ),
-      labelLarge: TextStyle(
-        fontFamily: 'RobotoMono',
-        fontWeight: FontWeight.w500,
-        fontSize: 14,
-        color: Color.fromRGBO(226, 231, 220, 1.0),
-      ),
-      headlineSmall: TextStyle(
-        fontFamily: 'RobotoMono',
-        fontWeight: FontWeight.w500,
-        fontSize: 24,
-        color: Color.fromRGBO(232, 90, 79, 1.0),
-      ));
+    displayLarge: TextStyle(
+      fontFamily: 'RobotoMono',
+      fontWeight: FontWeight.w700,
+      fontSize: 36,
+      color: Color.fromRGBO(232, 90, 79, 1.0),
+    ),
+    displayMedium: TextStyle(
+      fontFamily: 'RobotoMono',
+      fontWeight: FontWeight.w700,
+      fontSize: 22,
+      color: Color.fromRGBO(232, 90, 79, 1.0),
+    ),
+    titleLarge: TextStyle(
+      fontFamily: 'RobotoMono',
+      fontWeight: FontWeight.w500,
+      color: Color.fromRGBO(232, 90, 79, 1.0),
+    ),
+    bodyLarge: TextStyle(
+      fontFamily: 'RobotoMono',
+      fontWeight: FontWeight.w400,
+      fontSize: 14,
+      color: Color.fromRGBO(232, 90, 79, 1.0),
+    ),
+    bodyMedium: TextStyle(
+      fontFamily: 'RobotoMono',
+      fontWeight: FontWeight.w400,
+      fontSize: 14,
+      color: Color.fromRGBO(97, 97, 97, 1.0),
+      decorationColor: Color.fromRGBO(232, 90, 79, 1.0),
+      decorationThickness: 2.5,
+    ),
+    bodySmall: TextStyle(
+      fontFamily: 'RobotoMono',
+      fontWeight: FontWeight.w400,
+      fontSize: 12,
+      color: Color.fromRGBO(232, 90, 79, 1.0),
+    ),
+    labelLarge: TextStyle(
+      fontFamily: 'RobotoMono',
+      fontWeight: FontWeight.w500,
+      fontSize: 14,
+      color: Color.fromRGBO(226, 231, 220, 1.0),
+    ),
+    headlineSmall: TextStyle(
+      fontFamily: 'RobotoMono',
+      fontWeight: FontWeight.w500,
+      fontSize: 24,
+      color: Color.fromRGBO(232, 90, 79, 1.0),
+    ),
+  );
 
   static const FloatingActionButtonThemeData _floatingActionButtonThemeData =
       FloatingActionButtonThemeData(
@@ -97,22 +99,31 @@ class LightTheme {
   static const ListTileThemeData _listTileThemeData = ListTileThemeData(
     iconColor: Color.fromRGBO(232, 90, 79, 1.0),
     titleTextStyle: TextStyle(
-        fontFamily: 'RobotoMono',
-        fontWeight: FontWeight.w400,
-        fontSize: 14,
-        color: Color.fromRGBO(232, 90, 79, 1.0)),
+      fontFamily: 'RobotoMono',
+      fontWeight: FontWeight.w400,
+      fontSize: 14,
+      color: Color.fromRGBO(232, 90, 79, 1.0),
+    ),
     subtitleTextStyle: TextStyle(
-        fontFamily: 'RobotoMono',
-        fontWeight: FontWeight.w400,
-        fontSize: 12,
-        color: Color.fromRGBO(233, 128, 116, 1.0)),
+      fontFamily: 'RobotoMono',
+      fontWeight: FontWeight.w400,
+      fontSize: 12,
+      color: Color.fromRGBO(233, 128, 116, 1.0),
+    ),
   );
 
   static const DividerThemeData _dividerThemeData =
       DividerThemeData(color: Color.fromRGBO(216, 195, 165, 1.0));
 
   static const CheckboxThemeData _checkboxThemeData = CheckboxThemeData(
-      side: BorderSide(color: Color.fromRGBO(233, 128, 116, 1.0)));
+    side: BorderSide(color: Color.fromRGBO(233, 128, 116, 1.0)),
+  );
+
+  static const SnackBarThemeData _snackBarThemeData = SnackBarThemeData(
+    backgroundColor: Color.fromRGBO(232, 90, 79, 1.0),
+    closeIconColor: Color.fromRGBO(226, 231, 220, 1.0),
+    contentTextStyle: TextStyle(color: Color.fromRGBO(226, 231, 220, 1.0)),
+  );
 
   static final ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
@@ -124,6 +135,7 @@ class LightTheme {
     listTileTheme: _listTileThemeData,
     dividerTheme: _dividerThemeData,
     checkboxTheme: _checkboxThemeData,
+    snackBarTheme: _snackBarThemeData,
     floatingActionButtonTheme: _floatingActionButtonThemeData,
     dialogBackgroundColor: const Color.fromRGBO(226, 231, 220, 1.0),
     scaffoldBackgroundColor: const Color.fromRGBO(226, 231, 220, 1.0),

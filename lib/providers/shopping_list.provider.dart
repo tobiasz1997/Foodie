@@ -89,6 +89,7 @@ class ShoppingListProvider with ChangeNotifier {
         _shoppingList.firstWhere((element) => element.id == itemId);
 
     editedShoppingItem.productId = productId;
+    editedShoppingItem.customName = customName;
     editedShoppingItem.measurement = measurement;
     editedShoppingItem.value = value;
     editedShoppingItem.description = description;
