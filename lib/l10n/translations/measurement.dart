@@ -29,7 +29,7 @@ String getMeasurementShort(KitchenMeasurement key, BuildContext context) {
     case KitchenMeasurement.unit:
       return AppLocalizations.of(context)!.measurementUnitShort;
     default:
-      return AppLocalizations.of(context)!.measurementUnitShort; // fallback
+      return AppLocalizations.of(context)!.measurementUnitShort;
   }
 }
 
@@ -60,6 +60,6 @@ String getMeasurementLong(KitchenMeasurement key, BuildContext context) {
     case KitchenMeasurement.unit:
       return AppLocalizations.of(context)!.measurementUnitLong;
     default:
-      return AppLocalizations.of(context)!.measurementUnitLong; // fallback
+      return AppLocalizations.of(context)!.measurementUnitLong;
   }
 }

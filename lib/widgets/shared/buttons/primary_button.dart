@@ -4,19 +4,21 @@ class PrimaryButton extends StatelessWidget {
   final String text;
   final Function onPressed;
   final bool disabled;
+  final bool fullWidth;
 
   const PrimaryButton({
     super.key,
     required this.text,
     required this.onPressed,
     this.disabled = false,
+    this.fullWidth = true,
   });
 
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
       height: 50,
-      minWidth: double.infinity,
+      minWidth: fullWidth ? double.infinity : null,
       elevation: 5.0,
       color: disabled
           ? Theme.of(context).colorScheme.onPrimaryContainer
