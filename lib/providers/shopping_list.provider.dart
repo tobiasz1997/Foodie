@@ -19,6 +19,24 @@ class ShoppingListProvider with ChangeNotifier {
   List<ShoppingListItem> get getShoppingList => _shoppingList;
 
   ShoppingListProvider() {
+    _productsList = productsMock;
+    loadShoppingList();
+  }
+
+  Future<void> addIngredientsToShoppingList({
+    required List<Ingredient> list,
+  }) async {
+    for (var element in list) {
+      if (!element.active) {
+        await addShoppingItem(
+          productId: element.product.id,
+          value: element.value,
+          measurement: element.measurement,
+          description: element.description ?? null,
+          silent: true,
+        );
+      }
+    }
     loadShoppingList();
   }
 
@@ -27,7 +45,8 @@ class ShoppingListProvider with ChangeNotifier {
     String? customName,
     required KitchenMeasurement measurement,
     required double value,
-    String description = '',
+    String? description = '',
+    silent = false,
   }) async {
     var db = await _dbInstance.database;
 
@@ -46,8 +65,10 @@ class ShoppingListProvider with ChangeNotifier {
 
     if (duplicatedItem != null) {
       duplicatedItem.value = duplicatedItem.value + newShoppingItem.value;
-      duplicatedItem.description =
-          '${duplicatedItem.description ?? ''} ${newShoppingItem.description ?? ''}';
+      duplicatedItem.description = duplicatedItem.description != null &&
+              newShoppingItem.description != null
+          ? '${duplicatedItem.description ?? ''} ${newShoppingItem.description ?? ''}'
+          : null;
       duplicatedItem.active = true;
 
       await db.update(
@@ -61,8 +82,10 @@ class ShoppingListProvider with ChangeNotifier {
           return error;
         },
       ).then((_) {
-        logger.i(duplicatedItem);
-        loadShoppingList();
+        logger.i(duplicatedItem.toMap());
+        if (!silent) {
+          loadShoppingList();
+        }
       });
     } else {
       await db.insert(dbShoppingListTable, newShoppingItem.toMap()).catchError(
@@ -71,9 +94,11 @@ class ShoppingListProvider with ChangeNotifier {
           return error;
         },
       ).then(
-        (value) {
-          logger.i(newShoppingItem);
-          loadShoppingList();
+        (_) {
+          logger.i(newShoppingItem.toMap());
+          if (!silent) {
+            loadShoppingList();
+          }
         },
       );
     }
@@ -171,7 +196,6 @@ class ShoppingListProvider with ChangeNotifier {
 
   Future<void> loadShoppingList() async {
     _shoppingList = [];
-    _productsList = productsMock;
 
     var db = await _dbInstance.database;
     var result = await db.query(dbShoppingListTable).catchError(

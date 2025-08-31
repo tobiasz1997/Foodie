@@ -10,7 +10,11 @@ Private recipe app.
 
 ***Working in progress!***
 
-Next feature: **Dashboard + add / edit recipe**
+Next feature:
+
+- add / edit recipe
+- login / registration page
+- firebase / firestore
 
 ---
 
@@ -35,3 +39,13 @@ flutter doctor
 ### Features
 
 - Shopping list
+- Add / edit shopping item
+- Recipe list
+- Recipe details page
+
+### TODO
+
+- widgetbook
+- isolates
+- feedback?
+- tests

@@ -47,6 +47,12 @@ class DarkTheme {
       fontSize: 22,
       color: Color.fromRGBO(102, 252, 241, 1.0),
     ),
+    displaySmall: TextStyle(
+      fontFamily: 'RobotoMono',
+      fontWeight: FontWeight.w700,
+      fontSize: 18,
+      color: Color.fromRGBO(102, 252, 241, 1.0),
+    ),
     titleLarge: TextStyle(
       fontFamily: 'RobotoMono',
       fontWeight: FontWeight.w500,

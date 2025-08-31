@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:foodie/common/models/recipe.dart';
-import 'package:foodie/common/utils/utils.dart';
 import 'package:foodie/modules/home/meal_category_card.dart';
+import 'package:foodie/widgets/recipe/preparation_time.dart';
+import 'package:foodie/widgets/recipe/star_range.dart';
 import 'package:foodie/widgets/shared/buttons/favourite_button.dart';
 import 'package:foodie/widgets/shared/loading.dart';
-import 'package:foodie/widgets/shared/star_range.dart';
 
 class RecipeItem extends StatelessWidget {
   final Recipe recipe;
@@ -51,20 +51,19 @@ class RecipeItem extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Expanded(
-                        child: Hero(
-                          tag: recipe.id.toString() + 'name',
-                          child: Text(
-                            recipe.name,
-                            style: Theme.of(context)
-                                .textTheme
-                                .displayMedium!
-                                .copyWith(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w700,
-                                ),
-                          ),
+                      Hero(
+                        tag: recipe.id.toString() + 'name',
+                        child: Text(
+                          recipe.name,
+                          style: Theme.of(context)
+                              .textTheme
+                              .displayMedium!
+                              .copyWith(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w700,
+                              ),
                         ),
                       ),
                       FavouriteButton(recipe.favourite, () => null),
@@ -72,62 +71,23 @@ class RecipeItem extends StatelessWidget {
                   ),
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Expanded(
-                      child: Row(
-                        children: [
-                          MealCategoryCard(
-                            category: recipe.category,
-                          ),
-                          const SizedBox(
-                            width: 5,
-                          ),
-                          StarRange(
-                            rating: recipe.rating,
-                            size: StarRangeSizeEnum.small,
-                          ),
-                        ],
-                      ),
-                    ),
                     Row(
                       children: [
-                        if (recipe.preparationTime >= 1)
-                          Padding(
-                            padding: const EdgeInsets.only(right: 5),
-                            child: Row(
-                              children: [
-                                Text(
-                                  recipe.preparationTime.getHour(),
-                                  style: TextStyle(
-                                    color:
-                                        Theme.of(context).colorScheme.primary,
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                                ),
-                                const Text(
-                                  'h',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        Text(
-                          recipe.preparationTime.getMinutes(),
-                          style: TextStyle(
-                            color: Theme.of(context).colorScheme.primary,
-                            fontWeight: FontWeight.w700,
+                        Padding(
+                          padding: const EdgeInsets.only(right: 5),
+                          child: MealCategoryCard(
+                            category: recipe.category,
                           ),
                         ),
-                        const Text(
-                          'm',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                          ),
+                        StarRange(
+                          rating: recipe.rating,
+                          size: StarRangeSizeEnum.small,
                         ),
                       ],
                     ),
+                    PreparationTime(time: recipe.preparationTime),
                   ],
                 ),
                 if (recipe.description != null)

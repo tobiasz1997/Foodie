@@ -3,7 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:foodie/modules/home/no_recipes.dart';
 import 'package:foodie/modules/home/recipe_item.dart';
-import 'package:foodie/modules/recipe/recipe_details_page.dart';
+import 'package:foodie/modules/recipe/recipe_details_page/recipe_details_page.dart';
 import 'package:foodie/modules/shopping_list/shopping_list_page.dart';
 import 'package:foodie/providers/recipe.provider.dart';
 import 'package:foodie/widgets/drawer/drawer.dart';

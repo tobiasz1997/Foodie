@@ -3,12 +3,14 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class StarRange extends StatefulWidget {
   final double rating;
+  final int? totalVoters;
   final StarRangeSizeEnum size;
   final Function? onChange;
 
   const StarRange({
     super.key,
     required this.rating,
+    this.totalVoters,
     this.size = StarRangeSizeEnum.large,
     this.onChange,
   });
@@ -55,6 +57,19 @@ class _StarRangeState extends State<StarRange> {
     }
   }
 
+  FaIcon _icon(IconData icon) => FaIcon(
+        icon,
+        color: Colors.yellow,
+        size: size,
+        shadows: [
+          Shadow(
+            offset: const Offset(2, 2),
+            blurRadius: 8,
+            color: Colors.black.withOpacity(0.5),
+          ),
+        ],
+      );
+
   Padding _star(int index) {
     var value = ranks[index];
     return Padding(
@@ -62,21 +77,13 @@ class _StarRangeState extends State<StarRange> {
       child: GestureDetector(
         onTap: () => _setRating(index),
         child: value == 1
-            ? FaIcon(
-                FontAwesomeIcons.solidStar,
-                color: Colors.yellow,
-                size: size,
-              )
+            ? _icon(FontAwesomeIcons.solidStar)
             : value == 0.5
-                ? FaIcon(
+                ? _icon(
                     FontAwesomeIcons.starHalfStroke,
-                    color: Colors.yellow,
-                    size: size,
                   )
-                : FaIcon(
+                : _icon(
                     FontAwesomeIcons.star,
-                    color: Colors.yellow,
-                    size: size,
                   ),
       ),
     );
@@ -84,9 +91,19 @@ class _StarRangeState extends State<StarRange> {
 
   @override
   Widget build(BuildContext context) {
+    var voters = widget.totalVoters;
     return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: List.generate(5, (index) => _star(index)),
+      children: [
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: List.generate(5, (index) => _star(index)),
+        ),
+        if (voters != null)
+          Padding(
+            padding: const EdgeInsets.only(left: 5),
+            child: Text('($voters)'),
+          ),
+      ],
     );
   }
 }

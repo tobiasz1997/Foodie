@@ -23,11 +23,25 @@ class FavouriteButton extends StatelessWidget {
                 FontAwesomeIcons.solidHeart,
                 color: Theme.of(context).colorScheme.error,
                 size: 20,
+                shadows: [
+                  Shadow(
+                    offset: const Offset(2, 2),
+                    blurRadius: 8,
+                    color: Colors.black.withOpacity(0.5),
+                  ),
+                ],
               )
             : FaIcon(
                 FontAwesomeIcons.heart,
                 color: Theme.of(context).iconTheme.color,
                 size: 20,
+                shadows: [
+                  Shadow(
+                    offset: const Offset(2, 2),
+                    blurRadius: 8,
+                    color: Colors.black.withOpacity(0.5),
+                  ),
+                ],
               ),
       ),
     );

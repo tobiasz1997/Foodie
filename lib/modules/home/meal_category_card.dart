@@ -9,11 +9,11 @@ class MealCategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
+    return Container(
+      decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
+        color: Theme.of(context).colorScheme.primary,
       ),
-      color: Theme.of(context).colorScheme.primary,
       margin: const EdgeInsets.all(0),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),

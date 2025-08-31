@@ -7,6 +7,10 @@ extension UtilsDouble on double {
     return double.tryParse(toFixedString()) ?? this;
   }
 
+  double toFixedTwo() {
+    return double.parse(this.toStringAsFixed(2));
+  }
+
   String getHour() {
     return this.toString().split('.')[0];
   }
