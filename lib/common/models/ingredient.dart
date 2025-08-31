@@ -24,6 +24,15 @@ class Ingredient {
     required this.active,
   });
 
+  Ingredient copy() => Ingredient(
+        id: this.id,
+        product: this.product,
+        description: this.description,
+        measurement: this.measurement,
+        value: this.value,
+        active: this.active,
+      );
+
   factory Ingredient.fromMap(Map<String, dynamic> json) => Ingredient(
         id: json['id'],
         product: Product.fromMap(json['product']),

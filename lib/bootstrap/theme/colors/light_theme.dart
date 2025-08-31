@@ -47,6 +47,12 @@ class LightTheme {
       fontSize: 22,
       color: Color.fromRGBO(232, 90, 79, 1.0),
     ),
+    displaySmall: TextStyle(
+      fontFamily: 'RobotoMono',
+      fontWeight: FontWeight.w700,
+      fontSize: 18,
+      color: Color.fromRGBO(232, 90, 79, 1.0),
+    ),
     titleLarge: TextStyle(
       fontFamily: 'RobotoMono',
       fontWeight: FontWeight.w500,
