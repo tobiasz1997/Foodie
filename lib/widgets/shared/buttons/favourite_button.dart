@@ -12,8 +12,8 @@ class FavouriteButton extends StatelessWidget {
     return InkWell(
       onTap: () => onPressed(),
       borderRadius: BorderRadius.circular(12),
-      splashColor: Theme.of(context).iconTheme.color!.withOpacity(0.2),
-      highlightColor: Theme.of(context).iconTheme.color!.withOpacity(0.1),
+      splashColor: Theme.of(context).iconTheme.color!.withValues(alpha: 0.2),
+      highlightColor: Theme.of(context).iconTheme.color!.withValues(alpha: 0.1),
       child: Container(
         width: 30,
         height: 30,
@@ -27,7 +27,7 @@ class FavouriteButton extends StatelessWidget {
                   Shadow(
                     offset: const Offset(2, 2),
                     blurRadius: 8,
-                    color: Colors.black.withOpacity(0.5),
+                    color: Colors.black.withValues(alpha: 0.5),
                   ),
                 ],
               )
@@ -39,7 +39,7 @@ class FavouriteButton extends StatelessWidget {
                   Shadow(
                     offset: const Offset(2, 2),
                     blurRadius: 8,
-                    color: Colors.black.withOpacity(0.5),
+                    color: Colors.black.withValues(alpha: 0.5),
                   ),
                 ],
               ),

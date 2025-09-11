@@ -66,13 +66,11 @@ class _InputState extends State<Input> {
         hintText: widget.placeholder,
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: Theme.of(context).colorScheme.primary.withOpacity(0.4),
+            color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.4),
             width: 2.0,
           ),
         ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(5),
-        ),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
         errorBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: Theme.of(context).colorScheme.error,

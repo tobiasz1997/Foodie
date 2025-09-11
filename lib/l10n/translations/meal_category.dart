@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:foodie/common/models/recipe.dart';
+import 'package:foodie/l10n/app_localizations.dart';
 
 String getMealCategory(MealCategory category, BuildContext context) {
   switch (category) {
@@ -26,7 +26,5 @@ String getMealCategory(MealCategory category, BuildContext context) {
       return AppLocalizations.of(context)!.mealCategoryStarter;
     case MealCategory.other:
       return AppLocalizations.of(context)!.mealCategoryOther;
-    default:
-      return ''; // fallback
   }
 }

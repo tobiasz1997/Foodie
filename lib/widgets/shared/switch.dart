@@ -13,7 +13,7 @@ class FdSwitch extends StatelessWidget {
     ThemeChanger themeChanger = Provider.of<ThemeChanger>(context);
 
     return Switch(
-      activeColor: Theme.of(context).colorScheme.primary,
+      activeThumbColor: Theme.of(context).colorScheme.primary,
       inactiveThumbColor: themeChanger.isDarkTheme()
           ? const Color.fromRGBO(69, 162, 158, 1.0)
           : Theme.of(context).colorScheme.secondary,

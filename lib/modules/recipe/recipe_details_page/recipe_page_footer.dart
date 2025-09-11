@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:foodie/common/models/recipe.dart';
 import 'package:foodie/common/utils/utils.dart';
+import 'package:foodie/l10n/app_localizations.dart';
 import 'package:foodie/widgets/shared/buttons/primary_button_outline.dart';
 import 'package:url_launcher/url_launcher.dart';
 

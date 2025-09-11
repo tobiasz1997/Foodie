@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:foodie/l10n/app_localizations.dart';
 
 String? requiredValidator(BuildContext context, Object? value) {
   if (value == null || (value is String && value.isEmpty)) {

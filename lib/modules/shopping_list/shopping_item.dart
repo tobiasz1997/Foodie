@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:foodie/common/models/shopping_list_item.dart';
 import 'package:foodie/common/utils/utils.dart';
+import 'package:foodie/l10n/app_localizations.dart';
 import 'package:foodie/l10n/translations/measurement.dart';
 import 'package:foodie/modules/shopping_list/manage_shopping_item_page.dart';
 import 'package:foodie/providers/locale.provider.dart';

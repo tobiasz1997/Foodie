@@ -34,7 +34,9 @@ flutter doctor
 
 ### Stack
 
-- Flutter
+- flutter
+- provider
+- widgetbook
 
 ### Features
 
@@ -45,7 +47,6 @@ flutter doctor
 
 ### TODO
 
-- widgetbook
 - isolates
 - feedback?
 - tests

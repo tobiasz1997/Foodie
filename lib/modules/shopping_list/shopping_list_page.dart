@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:foodie/common/routes/routes.dart';
+import 'package:foodie/l10n/app_localizations.dart';
 import 'package:foodie/modules/shopping_list/shopping_item.dart';
 import 'package:foodie/providers/shopping_list.provider.dart';
 import 'package:provider/provider.dart';
