@@ -16,10 +16,16 @@ class WidgetbookApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Widgetbook.material(
-      lightTheme: LightTheme.lightTheme,
-      darkTheme: DarkTheme.darkTheme,
       directories: directories,
-      addons: [],
+      addons: [
+        AlignmentAddon(),
+        MaterialThemeAddon(
+          themes: [
+            WidgetbookTheme(name: 'Light', data: LightTheme.lightTheme),
+            WidgetbookTheme(name: 'Dark', data: DarkTheme.darkTheme),
+          ],
+        ),
+      ],
     );
   }
 }
