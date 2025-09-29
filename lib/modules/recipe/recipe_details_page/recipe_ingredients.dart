@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:foodie/common/models/ingredient.dart';
 import 'package:foodie/common/models/recipe.dart';
 import 'package:foodie/common/utils/exception.dart';
 import 'package:foodie/common/utils/utils.dart';
+import 'package:foodie/l10n/app_localizations.dart';
 import 'package:foodie/modules/recipe/recipe_details_page/ingredient_row_info.dart';
 import 'package:foodie/modules/recipe/recipe_details_page/recipe_ingredients_actions.dart';
 import 'package:foodie/providers/shopping_list.provider.dart';

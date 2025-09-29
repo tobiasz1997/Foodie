@@ -8,6 +8,7 @@ class Input extends StatefulWidget {
   final bool isReadOnly;
   final int lines;
   final TextInputType? keyboardType;
+  final bool? enabled;
   final Function(String)? onFiledSubmittedField;
   final FocusNode? focusNode;
   final String? Function(String?)? validator;
@@ -32,6 +33,7 @@ class Input extends StatefulWidget {
     this.onChange,
     this.onTap,
     this.controller,
+    this.enabled,
   });
 
   @override
@@ -57,6 +59,7 @@ class _InputState extends State<Input> {
       onChanged: widget.onChange,
       minLines: widget.lines,
       maxLines: widget.lines,
+      enabled: widget.enabled ?? true,
       autovalidateMode: AutovalidateMode.onUserInteraction,
       style: Theme.of(context).textTheme.bodyMedium!.copyWith(fontSize: 18),
       decoration: InputDecoration(
@@ -66,13 +69,11 @@ class _InputState extends State<Input> {
         hintText: widget.placeholder,
         enabledBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: Theme.of(context).colorScheme.primary.withOpacity(0.4),
+            color: Theme.of(context).colorScheme.primary.withValues(alpha: 0.4),
             width: 2.0,
           ),
         ),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(5),
-        ),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
         errorBorder: OutlineInputBorder(
           borderSide: BorderSide(
             color: Theme.of(context).colorScheme.error,

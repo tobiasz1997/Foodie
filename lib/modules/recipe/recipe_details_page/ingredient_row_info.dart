@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:foodie/common/models/ingredient.dart';
 import 'package:foodie/common/utils/utils.dart';
+import 'package:foodie/l10n/app_localizations.dart';
 import 'package:foodie/l10n/translations/measurement.dart';
 import 'package:foodie/providers/locale.provider.dart';
 import 'package:foodie/widgets/shared/dialogs/dialog_info.dart';
@@ -43,11 +43,9 @@ class _IngredientRowItemState extends State<IngredientRowItem> {
                       : widget.ingredient.product.name.en,
                   style: TextStyle(
                     color: widget.ingredient.active
-                        ? Theme.of(context)
-                            .textTheme
-                            .bodyMedium!
-                            .color!
-                            .withOpacity(0.5)
+                        ? Theme.of(
+                            context,
+                          ).textTheme.bodyMedium!.color!.withValues(alpha: 0.5)
                         : Theme.of(context).textTheme.bodyMedium!.color,
                   ),
                 ),
@@ -75,25 +73,22 @@ class _IngredientRowItemState extends State<IngredientRowItem> {
                 style: TextStyle(
                   fontWeight: FontWeight.w700,
                   color: widget.ingredient.active
-                      ? Theme.of(context).colorScheme.primary.withOpacity(0.5)
+                      ? Theme.of(
+                          context,
+                        ).colorScheme.primary.withValues(alpha: 0.5)
                       : Theme.of(context).colorScheme.primary,
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 2),
                 child: Text(
-                  getMeasurementShort(
-                    widget.ingredient.measurement,
-                    context,
-                  ),
+                  getMeasurementShort(widget.ingredient.measurement, context),
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
                     color: widget.ingredient.active
-                        ? Theme.of(context)
-                            .textTheme
-                            .bodyMedium!
-                            .color!
-                            .withOpacity(0.5)
+                        ? Theme.of(
+                            context,
+                          ).textTheme.bodyMedium!.color!.withValues(alpha: 0.5)
                         : Theme.of(context).textTheme.bodyMedium!.color,
                   ),
                 ),

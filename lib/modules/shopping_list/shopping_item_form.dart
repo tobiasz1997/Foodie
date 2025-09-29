@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:foodie/common/models/ingredient.dart';
 import 'package:foodie/common/models/shopping_list_item.dart';
 import 'package:foodie/common/utils/exception.dart';
 import 'package:foodie/common/utils/form_validators.dart';
 import 'package:foodie/common/utils/utils.dart';
+import 'package:foodie/l10n/app_localizations.dart';
 import 'package:foodie/providers/locale.provider.dart';
 import 'package:foodie/providers/shopping_list.provider.dart';
 import 'package:foodie/widgets/shared/buttons/primary_button.dart';

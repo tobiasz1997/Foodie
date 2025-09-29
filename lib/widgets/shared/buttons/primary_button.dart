@@ -30,8 +30,9 @@ class PrimaryButton extends StatelessWidget {
           : Theme.of(context).colorScheme.primary,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
       onPressed: () => onPressed(),
-      splashColor:
-          Theme.of(context).colorScheme.onSecondaryContainer.withOpacity(0.5),
+      splashColor: Theme.of(
+        context,
+      ).colorScheme.onSecondaryContainer.withValues(alpha: 0.5),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -39,16 +40,14 @@ class PrimaryButton extends StatelessWidget {
             text,
             style: disabled
                 ? Theme.of(context).textTheme.labelLarge!.copyWith(
-                      color: Theme.of(context)
-                          .textTheme
-                          .labelLarge!
-                          .color!
-                          .withOpacity(0.5),
-                      fontSize: smallSize ? 12 : 18,
-                    )
+                    color: Theme.of(
+                      context,
+                    ).textTheme.labelLarge!.color!.withValues(alpha: 0.5),
+                    fontSize: smallSize ? 12 : 18,
+                  )
                 : Theme.of(context).textTheme.labelLarge!.copyWith(
-                      fontSize: smallSize ? 12 : 18,
-                    ),
+                    fontSize: smallSize ? 12 : 18,
+                  ),
           ),
           if (icon != null)
             Padding(
@@ -57,11 +56,9 @@ class PrimaryButton extends StatelessWidget {
                 icon,
                 size: 15,
                 color: disabled
-                    ? Theme.of(context)
-                        .textTheme
-                        .labelLarge!
-                        .color!
-                        .withOpacity(0.5)
+                    ? Theme.of(
+                        context,
+                      ).textTheme.labelLarge!.color!.withValues(alpha: 0.5)
                     : Theme.of(context).textTheme.labelLarge!.color,
               ),
             ),

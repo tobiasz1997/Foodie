@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:foodie/bootstrap/theme/theme.dart';
 import 'package:foodie/common/routes/routes.dart';
 import 'package:foodie/common/static/constant.dart';
 import 'package:foodie/common/storage/database_helper.dart';
+import 'package:foodie/l10n/app_localizations.dart';
 import 'package:foodie/widgets/drawer/language_option.dart';
 import 'package:foodie/widgets/drawer/switch_option.dart';
 import 'package:foodie/widgets/shared/buttons/primary_button_outline.dart';
@@ -61,39 +61,38 @@ class _FdDrawerState extends State<FdDrawer> {
     }
 
     DrawerHeader _drawerHeader(BuildContext context) => DrawerHeader(
-          margin: EdgeInsets.zero,
-          padding: EdgeInsets.zero,
-          decoration: BoxDecoration(
-            color: Theme.of(context).colorScheme.secondary,
-            boxShadow: const [
-              BoxShadow(
-                color: Colors.black54,
-                blurRadius: 15.0,
-                offset: Offset(0.0, 0.75),
-              ), //BoxShadow
-            ],
+      margin: EdgeInsets.zero,
+      padding: EdgeInsets.zero,
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.secondary,
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.black54,
+            blurRadius: 15.0,
+            offset: Offset(0.0, 0.75),
+          ), //BoxShadow
+        ],
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CircleAvatar(
+            radius: 40,
+            backgroundColor: Theme.of(context).colorScheme.secondary,
+            backgroundImage: const AssetImage('assets/logo/foodie_logo.png'),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CircleAvatar(
-                radius: 40,
-                backgroundColor: Theme.of(context).colorScheme.secondary,
-                backgroundImage:
-                    const AssetImage('assets/logo/foodie_logo.png'),
+          Align(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: Text(
+                'John Snow',
+                style: Theme.of(context).textTheme.displayMedium!,
               ),
-              Align(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 10),
-                  child: Text(
-                    'John Snow',
-                    style: Theme.of(context).textTheme.displayMedium!,
-                  ),
-                ),
-              ),
-            ],
+            ),
           ),
-        );
+        ],
+      ),
+    );
 
     PrimaryButtonOutline _aboutDialog(BuildContext context) =>
         PrimaryButtonOutline(
@@ -103,7 +102,9 @@ class _FdDrawerState extends State<FdDrawer> {
             applicationIcon: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Theme.of(context).colorScheme.secondary.withOpacity(0.7),
+                color: Theme.of(
+                  context,
+                ).colorScheme.secondary.withValues(alpha: 0.7),
               ),
               padding: const EdgeInsets.all(7),
               width: 50,
@@ -196,9 +197,7 @@ class _FdDrawerState extends State<FdDrawer> {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(20),
-                    child: Column(
-                      children: [_aboutDialog(context)],
-                    ),
+                    child: Column(children: [_aboutDialog(context)]),
                   ),
                 ],
               ),

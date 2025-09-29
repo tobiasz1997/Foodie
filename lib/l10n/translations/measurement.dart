@@ -1,6 +1,6 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:foodie/common/models/ingredient.dart';
+import 'package:foodie/l10n/app_localizations.dart';
 
 String getMeasurementShort(KitchenMeasurement key, BuildContext context) {
   switch (key) {
@@ -27,8 +27,6 @@ String getMeasurementShort(KitchenMeasurement key, BuildContext context) {
     case KitchenMeasurement.drop:
       return AppLocalizations.of(context)!.measurementDropShort;
     case KitchenMeasurement.unit:
-      return AppLocalizations.of(context)!.measurementUnitShort;
-    default:
       return AppLocalizations.of(context)!.measurementUnitShort;
   }
 }
@@ -58,8 +56,6 @@ String getMeasurementLong(KitchenMeasurement key, BuildContext context) {
     case KitchenMeasurement.drop:
       return AppLocalizations.of(context)!.measurementDropLong;
     case KitchenMeasurement.unit:
-      return AppLocalizations.of(context)!.measurementUnitLong;
-    default:
       return AppLocalizations.of(context)!.measurementUnitLong;
   }
 }

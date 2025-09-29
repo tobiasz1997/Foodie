@@ -58,17 +58,17 @@ class _StarRangeState extends State<StarRange> {
   }
 
   FaIcon _icon(IconData icon) => FaIcon(
-        icon,
-        color: Colors.yellow,
-        size: size,
-        shadows: [
-          Shadow(
-            offset: const Offset(2, 2),
-            blurRadius: 8,
-            color: Colors.black.withOpacity(0.5),
-          ),
-        ],
-      );
+    icon,
+    color: Colors.yellow,
+    size: size,
+    shadows: [
+      Shadow(
+        offset: const Offset(2, 2),
+        blurRadius: 8,
+        color: Colors.black.withValues(alpha: 0.5),
+      ),
+    ],
+  );
 
   Padding _star(int index) {
     var value = ranks[index];
@@ -79,12 +79,8 @@ class _StarRangeState extends State<StarRange> {
         child: value == 1
             ? _icon(FontAwesomeIcons.solidStar)
             : value == 0.5
-                ? _icon(
-                    FontAwesomeIcons.starHalfStroke,
-                  )
-                : _icon(
-                    FontAwesomeIcons.star,
-                  ),
+            ? _icon(FontAwesomeIcons.starHalfStroke)
+            : _icon(FontAwesomeIcons.star),
       ),
     );
   }

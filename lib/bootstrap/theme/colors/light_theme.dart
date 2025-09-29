@@ -6,9 +6,9 @@ class LightTheme {
     onPrimaryContainer: Color.fromRGBO(233, 128, 116, 1.0),
     secondary: Color.fromRGBO(216, 195, 165, 1.0),
     onSecondaryContainer: Color.fromRGBO(226, 231, 220, 1.0),
-    background: Color(0xFAFAFAFF),
+    // background: Color(0xFAFAFAFF),
     surface: Color(0xFFFAFBFB),
-    onBackground: Colors.white,
+    // onBackground: Colors.white,
     error: Color.fromRGBO(255, 0, 0, 1.0),
     onError: Colors.white,
     onPrimary: Colors.white,
@@ -99,8 +99,8 @@ class LightTheme {
     foregroundColor: Color.fromRGBO(226, 231, 220, 1.0),
   );
 
-  static const DialogTheme _dialogThemeData =
-      DialogTheme(backgroundColor: Color.fromRGBO(226, 231, 220, 1.0));
+  static const DialogThemeData _dialogThemeData =
+      DialogThemeData(backgroundColor: Color.fromRGBO(226, 231, 220, 1.0));
 
   static const ListTileThemeData _listTileThemeData = ListTileThemeData(
     iconColor: Color.fromRGBO(232, 90, 79, 1.0),
@@ -143,7 +143,6 @@ class LightTheme {
     checkboxTheme: _checkboxThemeData,
     snackBarTheme: _snackBarThemeData,
     floatingActionButtonTheme: _floatingActionButtonThemeData,
-    dialogBackgroundColor: const Color.fromRGBO(226, 231, 220, 1.0),
     scaffoldBackgroundColor: const Color.fromRGBO(226, 231, 220, 1.0),
   );
 }

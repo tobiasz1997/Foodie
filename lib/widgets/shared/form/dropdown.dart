@@ -77,12 +77,12 @@ class _DropdownState extends State<Dropdown> {
                         value: option.value,
                         enabled: option.value != null,
                         style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all(
+                          backgroundColor: WidgetStateProperty.all(
                             state.value == option.value
                                 ? Theme.of(context).colorScheme.primary
-                                : Theme.of(context)
-                                    .colorScheme
-                                    .onPrimaryContainer,
+                                : Theme.of(
+                                    context,
+                                  ).colorScheme.onPrimaryContainer,
                           ),
                         ),
                         labelWidget: Text(
@@ -104,7 +104,7 @@ class _DropdownState extends State<Dropdown> {
                     )
                     .toList(),
                 menuStyle: MenuStyle(
-                  backgroundColor: MaterialStateProperty.all(
+                  backgroundColor: WidgetStateProperty.all(
                     Theme.of(context).colorScheme.onPrimaryContainer,
                   ),
                 ),
@@ -118,20 +118,22 @@ class _DropdownState extends State<Dropdown> {
                   size: 20,
                   color: Theme.of(context).iconTheme.color,
                 ),
-                textStyle: Theme.of(context)
-                    .textTheme
-                    .bodyMedium!
-                    .copyWith(fontSize: 18),
+                textStyle: Theme.of(
+                  context,
+                ).textTheme.bodyMedium!.copyWith(fontSize: 18),
                 inputDecorationTheme: InputDecorationTheme(
                   focusColor: Colors.deepOrangeAccent,
-                  contentPadding:
-                      const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                  contentPadding: const EdgeInsets.fromLTRB(
+                    20.0,
+                    15.0,
+                    20.0,
+                    15.0,
+                  ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      color: Theme.of(context)
-                          .colorScheme
-                          .primary
-                          .withOpacity(0.4),
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.primary.withValues(alpha: 0.4),
                       width: 2.0,
                     ),
                   ),
