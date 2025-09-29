@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:foodie/bootstrap/theme/theme.dart';
-import 'package:provider/provider.dart';
 
 class FdSwitch extends StatelessWidget {
   final bool isActive;
@@ -10,11 +8,9 @@ class FdSwitch extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ThemeChanger themeChanger = Provider.of<ThemeChanger>(context);
-
     return Switch(
       activeThumbColor: Theme.of(context).colorScheme.primary,
-      inactiveThumbColor: themeChanger.isDarkTheme()
+      inactiveThumbColor: Theme.of(context).brightness == Brightness.dark
           ? const Color.fromRGBO(69, 162, 158, 1.0)
           : Theme.of(context).colorScheme.secondary,
       value: isActive,
